@@ -2,7 +2,7 @@
 
 include "../lib/koneksi.php";
 $username = $_POST['username'];
-$password = $_POST['password'];
+$password = md5($_POST['password']);
 
 if (!ctype_alnum($username) or !ctype_alnum($password)) {
 	echo "<center>LOGIN GAGAL! <br>

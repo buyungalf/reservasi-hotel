@@ -9,7 +9,13 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
 
     if ($_GET['pages'] == 'home') {
         include "pages/home/home.php";
-    } else {
+    } else if ($_GET['pages'] == 'jenis_order') {
+    	include "pages/jenis_order/jenis_order.php";
+    } else if ($_GET['pages'] == 'tambah_jenis_order') {
+    	include "pages/jenis_order/form_tambah.php";
+    } else if ($_GET['pages'] == 'edit_jenis_order') {
+    	include "pages/jenis_order/form_edit.php";
+    }  else {
         include "pages/home/home.php";
     }
 

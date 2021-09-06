@@ -47,7 +47,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-header">MAIN</li>
           <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+            <a href="main.php?pages=home" class="nav-link active">
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Beranda
@@ -55,7 +55,7 @@
             </a>            
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="main.php?pages=booking" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Booking
@@ -73,25 +73,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="main.php?pages=kamar" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kamar</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="main.php?pages=tamu" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tamu</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="main.php?pages=order" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Order</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
+                <a href="main.php?pages=jenis_order" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jenis Order</p>
                 </a>
