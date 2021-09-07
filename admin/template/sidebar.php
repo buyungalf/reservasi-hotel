@@ -62,28 +62,39 @@
               </p>
             </a>
           </li>
+          <li class="nav-header">MANAGE</li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Manage
+                Kamar
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">3</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="main.php?pages=kamar" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Kamar</p>
+                  <p>Tipe Kamar</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="main.php?pages=tamu" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Tamu</p>
+                  <p>Kamar</p>
                 </a>
-              </li>
+              </li>              
+            </ul>
+          </li> 
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Barang Order
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">              
               <li class="nav-item">
                 <a href="main.php?pages=order" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -97,7 +108,7 @@
                 </a>
               </li>              
             </ul>
-          </li>          
+          </li>         
           <li class="nav-header">SETTINGS</li>
           <li class="nav-item">
             <a href="logout.php" class="nav-link">
