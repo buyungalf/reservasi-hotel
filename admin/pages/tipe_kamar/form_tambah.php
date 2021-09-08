@@ -21,46 +21,28 @@
 <!-- Horizontal Form -->
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Form Tambah Kamar</h3>
+                <h3 class="card-title">Form Tambah Tipe Kamar</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="post" action="pages/kamar/aksi_tambah.php" class="form-horizontal">
+              <form method="post" action="pages/tipe_kamar/aksi_tambah.php" class="form-horizontal">
                 <div class="card-body">
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Nama Kamar</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" name="nm_kamar" placeholder="Nama kamar">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Fasilitas</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" name="fasilitas" placeholder="Fasilitas kamar">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Status</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" name="status" placeholder="Status kamar">
-                    </div>
-                  </div>
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Tipe Kamar</label>
                     <div class="col-sm-10">
-                    <select name="tipe_kamar" class="form-control select2" style="width: 100%;">
-                      <option selected="selected">-- Pilih tipe kamar --</option>
-                      <?php
-                        include "../lib/config.php";
-                        include "../lib/koneksi.php";
-                        $q = mysqli_query($koneksi, "SELECT * FROM tb_kamar_tipe");
-                        while($tipe=mysqli_fetch_array($q)){
-                      ?>                          
-                      <option value="<?php echo $tipe['id_tipe']; ?>">
-                        <?php echo $tipe['tipe_kamar']; ?>
-                      </option>
-                      <?php } ?>
-                    </select>
+                      <input type="text" class="form-control" name="tipe_kamar" placeholder="Tipe kamar">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Harga Kamar</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="harga" placeholder="Harga kamar">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Foto Kamar</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="pict" placeholder="Foto kamar">
                     </div>
                   </div>
                 </div>

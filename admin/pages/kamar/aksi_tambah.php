@@ -7,9 +7,12 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
 	include "../../../lib/config.php";
 	include "../../../lib/koneksi.php";
 
-	$nama = $_POST['nm_kamar'];
+	$nm_kamar = $_POST['nm_kamar'];
+	$fasilitas = $_POST['fasilitas'];
+	$status = $_POST['status'];
+	$tipe_kamar = $_POST['tipe_kamar'];
 
-	$querySimpan = mysqli_query($koneksi,"INSERT INTO tb_kamar(kamar) VALUES ('$nama')");
+	$querySimpan = mysqli_query($koneksi,"INSERT INTO tb_kamar(nm_kamar, fasilitas, status, tipe) VALUES ('$nm_kamar', '$fasilitas', '$status', '$tipe_kamar')");
 	if($querySimpan) {
 		echo"<script> alert('Data kamar Berhasil Masuk'); window.location = '$admin_url'+'main.php?pages=kamar'; </script>"; 
 	} else {

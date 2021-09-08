@@ -24,12 +24,19 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
     } else if ($_GET['pages'] == 'edit_order') {
         include "pages/order/form_edit.php";
 
+    } else if ($_GET['pages'] == 'tipe_kamar') {
+    	include "pages/tipe_kamar/tipe_kamar.php";
+    } else if ($_GET['pages'] == 'tambah_tipe_kamar') {
+    	include "pages/tipe_kamar/form_tambah.php";
+    } else if ($_GET['pages'] == 'edit_tipe_kamar') {
+    	include "pages/tipe_kamar/form_edit.php";
+        
     } else if ($_GET['pages'] == 'kamar') {
-    	include "pages/kamar/kamar.php";
+        include "pages/kamar/kamar.php";
     } else if ($_GET['pages'] == 'tambah_kamar') {
-    	include "pages/kamar/form_tambah.php";
+        include "pages/kamar/form_tambah.php";
     } else if ($_GET['pages'] == 'edit_kamar') {
-    	include "pages/kamar/form_edit.php";
+        include "pages/kamar/form_edit.php";
         
     }  else {
         include "pages/home/home.php";
