@@ -10,6 +10,9 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
     if ($_GET['pages'] == 'home') {
         include "pages/home/home.php";
 
+    } else if ($_GET['pages'] == 'messages') {
+    	include "pages/messages/messages.php";
+
     } else if ($_GET['pages'] == 'user') {
     	include "pages/user/user.php";
     } else if ($_GET['pages'] == 'tambah_user') {
