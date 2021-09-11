@@ -1,4 +1,4 @@
 <?php
 
-$base_url = "http://localhost:8080/reservasi-hotel/";
-$admin_url = "http://localhost:8080/reservasi-hotel/admin/";
+$base_url = "http://localhost/reservasi-hotel/";
+$admin_url = "http://localhost/reservasi-hotel/admin/";

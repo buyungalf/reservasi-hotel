@@ -65,14 +65,14 @@
                       <td><?= $u['password'] ?></td>
                       <td><?= $u['status'] ?></td>
                       <td><?= $u['realname'] ?></td>
-                      <td><img src="asset/<?= $kt['pict'] ?>"></td>
+                      <td><img src="asset/<?= $u['foto'] ?>"></td>
                       <td><?= $u['alamat'] ?></td>
                       <td><?= $u['phone'] ?></td>
                       <td><?= $u['lastlogin'] ?></td>
                       <td>
                         <div class="input-group-btn">
                           <a href="<?= $admin_url; ?>main.php?pages=edit_user&id_user=<?= $u['id_user']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                          <a href="<?= $admin_url; ?>pages/user/aksi_hapus.php?id_user=<?= $kt['id_user']; ?>" class="btn btn-danger"><i class="fas fa-power-off"></i></a>
+                          <a href="<?= $admin_url; ?>pages/user/aksi_hapus.php?id_user=<?= $u['id_user']; ?>" class="btn btn-danger"><i class="fas fa-power-off"></i></a>
                         </div>
                       </td>
                     </tr>
