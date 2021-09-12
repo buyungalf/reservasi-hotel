@@ -53,7 +53,7 @@
                     <?php
                             include "../lib/config.php";
                             include "../lib/koneksi.php";
-                            $query = mysqli_query($koneksi, "SELECT * FROM tb_kamar a join tb_kamar_tipe b on a.tipe = b.id_tipe");
+                            $query = mysqli_query($koneksi, "SELECT * FROM tb_kamar a join tb_kamar_tipe b on a.tipe = b.id_tipe ORDER BY a.status asc");
                             $i=1;
                             while($k=mysqli_fetch_array($query)){                              
                           ?>
@@ -64,11 +64,11 @@
                       <td><?= $k['fasilitas'] ?></td>
                       <td><?= $k['status'] ?></td>
                       <td>
-                            <div class="input-group-btn pb-1">
-                              <a href="<?= $admin_url; ?>main.php?pages=edit_kamar&id_kamar=<?= $k['id_kamar']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                              <a href="<?= $admin_url; ?>pages/kamar/aksi_hapus.php?id_kamar=<?= $k['id_kamar']; ?>" class="btn btn-danger"><i class="fas fa-power-off"></i></a>
-                            </div>
-                          </td>
+                        <div class="input-group-btn">
+                          <a href="<?= $admin_url; ?>main.php?pages=form_booking&id_kamar=<?= $k['id_kamar']; ?>" class="btn btn-primary">Booking</a>
+                          <a href="<?= $admin_url; ?>main.php?pages=form_checkin&id_kamar=<?= $k['id_kamar']; ?>" class="btn btn-success">Check-in</a>
+                        </div>
+                      </td>
                     </tr>
                     <?php $i++;} ?> 
                   </tbody>
@@ -77,14 +77,14 @@
               <!-- /.card-body -->
             </div>
             <ul class="nav navbar-right panel_toolbox">
-                      <div class="input-group-btn float-right">
-                      <a href="main.php?pages=tambah_kamar">
-                        <button href="index.php" type="button" class="btn btn-primary">Tambah Daftar</button>
-                      </a>
-                    </div>                      
-                    </ul>
+              <div class="input-group-btn float-right">
+              <a href="main.php?pages=tambah_kamar">
+                <button href="index.php" type="button" class="btn btn-primary">Tambah Daftar</button>
+              </a>
+            </div>                      
+            </ul>
             <!-- /.card -->
-                    </div>
+          </div>
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->

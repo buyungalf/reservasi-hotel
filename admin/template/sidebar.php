@@ -67,6 +67,39 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
+                Transaksi
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="main.php?pages=booking" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Booking</p>
+                </a>
+              </li>          
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="main.php?pages=daftar_kamar" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Kamar</p>
+                </a>
+              </li>          
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="main.php?pages=reservasi" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Reservasi</p>
+                </a>
+              </li>          
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
                 Akun
                 <i class="fas fa-angle-left right"></i>
               </p>

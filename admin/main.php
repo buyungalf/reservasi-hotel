@@ -53,6 +53,18 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
     } else if ($_GET['pages'] == 'edit_kamar') {
         include "pages/kamar/form_edit.php";
         
+    } else if ($_GET['pages'] == 'daftar_kamar') {
+        include "pages/daftar_kamar/daftar_kamar.php";
+    } else if ($_GET['pages'] == 'form_booking') {
+        include "pages/daftar_kamar/form_booking.php";
+    } else if ($_GET['pages'] == 'form_checkin') {
+        include "pages/daftar_kamar/form_checkin.php";
+
+    } else if ($_GET['pages'] == 'booking') {
+        include "pages/booking/booking.php";
+    } else if ($_GET['pages'] == 'reservasi') {
+        include "pages/reservasi/reservasi.php";
+        
     }  else {
         include "pages/home/home.php";
     }
