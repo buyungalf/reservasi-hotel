@@ -82,4 +82,5 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
     }
 
     include "template/footer.php";
+    
 }
