@@ -53,7 +53,6 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="card-body p-0">
                 <table class="table">
                   <thead>
@@ -73,6 +72,7 @@
                       include "../lib/koneksi.php";
                       $query = mysqli_query($koneksi, "SELECT * from tb_tamu a JOIN  tb_tamu_order b ON a.id_tamu = b.id_tamu JOIN tb_order c ON b.id_order = c.id WHERE a.id_tamu = $id_tamu order by b.tgl_order desc");
                       $i=1;
+                      $id_tamu = $to['id_tamu'];
                       while($to=mysqli_fetch_array($query)){                              
                     ?>
                     <tr>
@@ -92,6 +92,9 @@
                   </tbody>
                 </table>
               </div>
+              <div class="card-footer">
+                  <a href="<?= $admin_url; ?>main.php?pages=tambah_order_tamu&id_tamu=<?= $id_tamu ?>" class="btn btn-info float-right">Tambah</a>                    
+                </div>
             </div>
             <!-- /.card -->
                     </div>
