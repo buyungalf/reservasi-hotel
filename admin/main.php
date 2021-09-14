@@ -62,8 +62,11 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
 
     } else if ($_GET['pages'] == 'booking') {
         include "pages/booking/booking.php";
+
     } else if ($_GET['pages'] == 'reservasi') {
-        include "pages/reservasi/reservasi.php";
+        include "pages/reservasi/reservasi.php";        
+    } else if ($_GET['pages'] == 'order_tamu') {
+        include "pages/reservasi/shop.php";
         
     }  else {
         include "pages/home/home.php";

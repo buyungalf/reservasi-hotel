@@ -16,7 +16,7 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
 	if($querySimpan) {
 		echo"<script> alert('Data Order Berhasil Di ubah'); window.location = '$admin_url'+'main.php?pages=order'; </script>"; 
 	} else {
-		echo "<script> alert('Data Order Gagal Di ubah'); window.location = '$admin_url'+'main.php?pages=edit_order&id_jorder='+'$id_order';</script>";
+		echo "<script> alert('Data Order Gagal Di ubah'); window.location = '$admin_url'+'main.php?pages=edit_order&id_order='+'$id_order';</script>";
 	}
 	}				
 ?>

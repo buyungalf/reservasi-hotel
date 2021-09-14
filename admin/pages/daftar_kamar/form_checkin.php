@@ -32,7 +32,7 @@
                   $id_kamar = $_GET['id_kamar'];
                   $query = mysqli_query($koneksi, "SELECT * FROM tb_kamar a join tb_kamar_tipe b on a.tipe = b.id_tipe where a.id_kamar='$id_kamar'");
                   $k=mysqli_fetch_array($query);
-                  $tglp = mktime(date("H"),date("i"),date("s"),date("m"),date("d"),date("Y")); 
+                  $tglp = mktime(date("H"),date("i"),date("s"),date("m"),date("d"),date("Y"));                  
                   $no_pesan = date("00jnYHis",$tglp);
                 ?>
                 <div class="card-body">               
@@ -51,7 +51,7 @@
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Waktu Check in</label>
                     <div class="col-sm-10">
-                      <label class="col-form-label">Minggu, 12 Sept 2021  |  20:08</label>
+                      <label class="col-form-label"><?= date("l, j F Y") ?></label>
                     </div>
                   </div> 
                   <div class="form-group row">
