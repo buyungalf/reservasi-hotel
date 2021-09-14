@@ -13,6 +13,11 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
     } else if ($_GET['pages'] == 'messages') {
     	include "pages/messages/messages.php";
 
+    } else if ($_GET['pages'] == 'account') {
+    	include "pages/account/account_page.php";
+    } else if ($_GET['pages'] == 'detail_account') {
+    	include "pages/account/detail.php";
+
     } else if ($_GET['pages'] == 'site') {
     	include "pages/site/site.php";
     } else if ($_GET['pages'] == 'edit_site') {
