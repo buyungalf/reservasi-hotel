@@ -22,41 +22,178 @@
 <!-- Horizontal Form -->
             <div class="card card-info">  
             <div class="card-header">
-                    <h3 class="card-title">Order Tamu Hotel</h3>
-                  </div>           
+              <h3 class="card-title">Order Tamu Hotel</h3>
+            </div>           
               <!-- /.card-header -->
                 <?php                  
                   include "../lib/config.php";
                   include "../lib/koneksi.php";
                   $id_tamu = $_GET['id_tamu'];
-                  $query = mysqli_query($koneksi, "SELECT * from tb_tamu b JOIN tb_kamar c ON b.id_kamar = c.id_kamar WHERE b.id_tamu = $id_tamu");
-                  $to=mysqli_fetch_array($query);
-                  $i=1;                           
+                  $query = mysqli_query($koneksi, "SELECT * from tb_tamu a JOIN tb_kamar b ON a.id_kamar = b.id_kamar JOIN tb_kamar_tipe c ON b.tipe = c.id_tipe WHERE a.id_tamu = '$id_tamu'");
+                  $co=mysqli_fetch_array($query);
+                  $i=1; 
+
+                  $harga1 = $co['harga'];     
+                  $get_tanggal = date("j",$co['checkin']);
+                  $get_bulan = date("n",$co['checkin']);
+                  $get_tahun = date("Y",$co['checkin']);
+                  $get_jam = date("H",$co['checkin']);
+                  $get_menit = date("i",$co['checkin']);
+                  $get_detik = date("s",$co['checkin']);
+                  
+                  $get_jam_skr = date("H");
+                  $get_menit_skr = date("i");
+                  $get_detik_skr = date("s");
+                  
+                  $get_13 = date("H",13);
+                  $get_15 = date("H",15);
+                  $get_17 = date("H",17);
+                  
+                  $i_checkin = $co['checkin'];
+                  $tgl = date("j",$i_checkin);
+                  $bln = date("n",$i_checkin);
+                  $thn = date("Y",$i_checkin);
+                  
+                  //kondisi
+                  $lama_sewa = floor((mktime(date("H"),date("i"),date("s"),date("m"),date("d"),date("Y")) - mktime($get_jam,$get_menit,$get_detik,$get_bulan,$get_tanggal,$get_tahun))/86400);
+                  
+                  if ($lama_sewa <= 0)
+                  {
+                    $harga_kamar = $harga1; 
+                  }
+                  else
+                  {
+                    if ($get_jam_skr >= $get_13 | $get_jam_skr <= $get_15)
+                    {
+                      $harga_kamar = $harga1 + ((25/100) * $harga1) * $lama_sewa;
+                    }
+                    else if ($get_jam_skr > $get_15 | $get_jam_skr <= $get_17)
+                    {
+                      $harga_kamar = $harga1 + ((50/100) * $harga1) * $lama_sewa;
+                    }
+                    else if ($get_jam_skr < $get_17)
+                    {
+                      $harga_kamar = $harga1 * $lama_sewa;
+                    }   
+                  }                     
                 ?>
                 <div class="card-body">
                   <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">No. Trans</label>
+                    <div class="col-sm-10">
+                      <label class="col-form-label"><?= $co['no_trans'] ?></label>
+                    </div>
+                  </div>
+                  <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Nama Tamu</label>
                     <div class="col-sm-10">
-                      <label class="col-form-label"><?= $to['nm_tamu'] ?></label>
+                      <label class="col-form-label"><?= $co['nm_tamu'] ?></label>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">(Tanggal | Jam) Check in</label>
+                    <label class="col-sm-2 col-form-label">Alamat</label>
                     <div class="col-sm-10">
-                      <label class="col-form-label"><?= date("j F Y | H:i",$to['checkin']) ?></label>
+                      <label class="col-form-label"><?= $co['alamat'] ?></label>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Nama Kamar</label>
+                    <label class="col-sm-2 col-form-label">Identitas</label>
                     <div class="col-sm-10">
-                      <label class="col-form-label"><?= $to['nm_kamar'] ?></label>
+                      <label class="col-form-label"><?= $co['identitas'] ?></label>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">No. Identitas</label>
+                    <div class="col-sm-10">
+                      <label class="col-form-label"><?= $co['no_id'] ?></label>
                     </div>
                   </div>
                 </div>
-              </div>             
+                <div class="card-body p-0">
+                <h3 style="text-align: center"><b>Detail Transaksi</b></h3>
+                <table class="table mb-2">
+                  <thead>
+                    <tr>
+                      <th>Nama Kamar</th>
+                      <th>Tipe Kamar</th>
+                      <th>Harga Kamar</th>
+                      <th>Check-in</th>
+                      <th>Check-out</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>                    
+                    <tr>
+                      <td><?= $co['nm_kamar'] ?></td>
+                      <td><?= $co['tipe_kamar'] ?></td>
+                      <td><?= $co['harga'] ?></td>
+                      <td><?= date("j F Y | H:i",$co['checkin']) ?></td>
+                      <td><?= date("j F Y | H:i") ?></td>
+                      <td>Rp. <?= number_format($harga_kamar,2,',','.'); ?></td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                <div class="card-body p-0">
+                <table class="table" >
+                  <thead>
+                    <tr>
+                      <th style="width: 20px">#</th>
+                      <th>(Tanggal | Jam) Order</th>
+                      <th>Nama Order</th>
+                      <th>Harga</th>
+                      <th>Qty</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                      include "../lib/config.php";
+                      include "../lib/koneksi.php";
+
+                      $id_tamu = $_GET['id_tamu'];
+
+                      $query = mysqli_query($koneksi, "SELECT * from tb_tamu a JOIN  tb_tamu_order b ON a.id_tamu = b.id_tamu JOIN tb_order c ON b.id_order = c.id WHERE a.id_tamu = $id_tamu order by b.tgl_order desc");
+                      $i=1;
+                      $total_order = 0;
+                      
+                      while($to=mysqli_fetch_array($query)){                              
+                    ?>
+                    <tr>
+                      <td><?= $i ?>.</td>
+                      <td><?= date("j F Y | H:i",$to['tgl_order']) ?></td>
+                      <td><?= $to['nm_order'] ?></td>
+                      <td><?= $to['harga'] ?></td>
+                      <td><?= $to['banyak'] ?></td>
+                      <td><?= $to['biaya'] ?></td>
+                    </tr>
+                    <?php 
+                    $i++;
+                    $total_order += $to['biaya'];
+                    } 
+                    $total_tagihan = $total_order + $harga_kamar;
+                    ?> 
+                  </tbody>
+                </table>
+                </div>
+              </div>   
+              <div class="row invoice-info">
+                <div class="col-sm-9 invoice-col">
+                </div>
+                <!-- /.col -->
+                <div class=" invoice-col mb-3 mt-3 ">
+                  <b>Total Order :</b> Rp. <?= number_format($total_order,2,',','.') ?><br>
+                  <b>Diskon Kamar :</b> 0%<br>
+                  <b>Total Tagihan :</b> Rp. <?= number_format($total_tagihan,2,',','.') ?>
+                </div>          
+            </div>
+            <div class="card-body d-flex justify-content-center">
+              <a href="">
+                  <button type="submit" class="btn btn-success float-right">Check Out</button>
+                </a>
             </div>
             <!-- /.card -->
-                    </div>
+          </div>
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->

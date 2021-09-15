@@ -55,17 +55,8 @@
             </a>            
           </li>
           <li class="nav-item">
-            <a href="main.php?pages=booking" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Booking
-              </p>
-            </a>
-          </li>
-          <li class="nav-header">MANAGE</li>
-          <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-book"></i>
               <p>
                 Transaksi
                 <i class="fas fa-angle-left right"></i>
@@ -96,6 +87,7 @@
               </li>          
             </ul>
           </li>
+          <li class="nav-header">MANAGE</li>          
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>

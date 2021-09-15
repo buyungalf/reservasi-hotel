@@ -76,15 +76,8 @@
               </div>
               <!-- /.card-body -->
             </div>
-            <ul class="nav navbar-right panel_toolbox">
-              <div class="input-group-btn float-right">
-              <a href="main.php?pages=tambah_kamar">
-                <button href="index.php" type="button" class="btn btn-primary">Tambah Daftar</button>
-              </a>
-            </div>                      
-            </ul>
-            <!-- /.card -->
           </div>
+        </div>
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
