@@ -71,11 +71,16 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
     } else if ($_GET['pages'] == 'reservasi') {
         include "pages/reservasi/reservasi.php";        
     } else if ($_GET['pages'] == 'order_tamu') {
-        include "pages/reservasi/shop.php";
+        include "pages/reservasi/shop.php";        
+    } else if ($_GET['pages'] == 'tambah_order_tamu') {
+        include "pages/reservasi/form_order_tamu.php";        
+    } else if ($_GET['pages'] == 'check_out') {
+        include "pages/reservasi/check_out.php";
         
     }  else {
         include "pages/home/home.php";
     }
 
     include "template/footer.php";
+    
 }
