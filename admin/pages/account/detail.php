@@ -52,6 +52,7 @@
                     while($d=mysqli_fetch_array($query)){
                       $id_tamu = $d['id_tamu'];
                       $id_kamar = $d['id_kamar'];
+                      $diskon = $d['diskon'];
                       $i_checkin = date("j/n/Y | H:i",$d['checkin']);
                       $i_checkout = date("j/n/Y | H:i",$d['checkout']);
                       
@@ -123,12 +124,12 @@
 					          $no++;?>
 					 
                     <tr>
-                      <td><b><?php echo"$no" ?></b></td>
-                      <td><b><?php echo"$tgl_order" ?></b></td>
-                      <td><b><?php echo"$nm_order" ?></b></td>
-                      <td><b><?php echo"$harga" ?></b></td>
-                      <td><b>Rp.<?php echo"$banyak" ?></b></td>
-                      <td><b><?php echo"$biaya" ?></b></td>
+                      <td><?php echo"$no" ?></td>
+                      <td><?php echo"$tgl_order" ?></td>
+                      <td><?php echo"$nm_order" ?></td>
+                      <td>Rp.<?php echo"$harga" ?></td>
+                      <td><?php echo"$banyak" ?></td>
+                      <td>Rp.<?php echo"$biaya" ?></td>
                     </tr>
 					
 					          <?php }
@@ -145,6 +146,37 @@
 					            	</tr>";
 					          }
 				          	?>
+
+                    <?php
+                    $kueri1 = mysqli_query($koneksi, "SELECT SUM(biaya) FROM tb_trans_tamu_order");
+                    while ($c = mysql_fetch_array($kueri1))
+                    {
+                    $biaya = $c['SUM(biaya)'];
+                    }
+                    
+                    if ($biaya <= 0)
+                    {
+                      $tot_order = 0;
+                    }
+                    else
+                      $tot_order = $biaya;
+                    
+                    $tot_diskon = ($diskon/100) * $harga;
+                    $tot_tagihan = ($harga_kamar + $tot_order) - $tot_diskon;
+                    ?>
+
+                    <tr>
+                      <td></td><td></td><td></td><td></td><td></td>
+                      <td>TOTAL ORDER = Rp.<b><?php echo"$tot_order" ?></b></td>
+                    </tr>
+                    <tr>
+                      <td></td><td></td><td></td><td></td><td></td>
+                      <td>DISKON KAMAR (<?php echo"<b>$diskon</b> %" ?>) = Rp.<b><?php echo"$tot_diskon" ?></b></td>
+                    </tr>
+                    <tr>
+                      <td></td><td></td><td></td><td></td><td></td>
+                      <td>TOTAL TAGIHAN = Rp.<b><?php echo"$tot_tagihan" ?></b></td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
