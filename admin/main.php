@@ -58,12 +58,12 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
     } else if ($_GET['pages'] == 'edit_kamar') {
         include "pages/kamar/form_edit.php";
         
-    } else if ($_GET['pages'] == 'daftar_kamar') {
-        include "pages/daftar_kamar/daftar_kamar.php";
+    } else if ($_GET['pages'] == 'check_in') {
+        include "pages/check_in/daftar_kamar.php";
     } else if ($_GET['pages'] == 'form_booking') {
-        include "pages/daftar_kamar/form_booking.php";
+        include "pages/check_in/form_booking.php";
     } else if ($_GET['pages'] == 'form_checkin') {
-        include "pages/daftar_kamar/form_checkin.php";
+        include "pages/check_in/form_checkin.php";
 
     } else if ($_GET['pages'] == 'booking') {
         include "pages/booking/booking.php";
