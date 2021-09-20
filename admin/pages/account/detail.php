@@ -149,7 +149,7 @@
 
                     <?php
                     $kueri1 = mysqli_query($koneksi, "SELECT SUM(biaya) FROM tb_trans_tamu_order");
-                    while ($c = mysql_fetch_array($kueri1))
+                    while ($c = mysqli_fetch_array($kueri1))
                     {
                     $biaya = $c['SUM(biaya)'];
                     }
@@ -176,6 +176,15 @@
                     <tr>
                       <td></td><td></td><td></td><td></td><td></td>
                       <td>TOTAL TAGIHAN = Rp.<b><?php echo"$tot_tagihan" ?></b></td>
+                    </tr>
+                    <tr>
+                      <td></td><td></td><td></td>
+                      <td>
+                        <div>
+                          <a href="./pages/account/cetak.php" target='_blank'>CETAK</a>
+                        </div>
+                      </td>
+                      <td></td><td></td><td></td>
                     </tr>
                   </tbody>
                 </table>

@@ -17,6 +17,8 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
     	include "pages/account/account_page.php";
     } else if ($_GET['pages'] == 'detail_account') {
     	include "pages/account/detail.php";
+    } else if ($_GET['pages'] == 'cetak') {
+    	include "pages/account/index.php";
 
     } else if ($_GET['pages'] == 'site') {
     	include "pages/site/site.php";
