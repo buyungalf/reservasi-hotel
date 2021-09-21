@@ -54,7 +54,7 @@
             <a href="main.php?pages=check_in" class="nav-link">
               <i class="nav-icon fas fa-hotel"></i>
               <p>
-                Check_in
+                Check-in
               </p>
             </a>            
           </li>

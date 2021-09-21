@@ -21,16 +21,6 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Daftar Tamu Hotel</h3>
-
-                <div class="card-tools">
-                  <ul class="pagination pagination-sm float-right">
-                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                  </ul>
-                </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
@@ -70,13 +60,6 @@
               </div>
               <!-- /.card-body -->
             </div>
-            <ul class="nav navbar-right panel_toolbox">
-                      <div class="input-group-btn float-right">
-                      <a href="main.php?pages=tambah_order">
-                        <button href="index.php" type="button" class="btn btn-primary">Tambah Daftar</button>
-                      </a>
-                    </div>                      
-                    </ul>
             <!-- /.card -->
                     </div>
       </div><!-- /.container-fluid -->

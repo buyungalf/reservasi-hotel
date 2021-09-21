@@ -181,7 +181,7 @@
                       <td></td><td></td><td></td>
                       <td>
                         <div>
-                          <a href="./pages/account/cetak.php" target='_blank'>CETAK</a>
+                          <a href="./pages/account/cetak.php" class="btn btn-secondary" target='_blank'>CETAK</a>
                         </div>
                       </td>
                       <td></td><td></td><td></td>
