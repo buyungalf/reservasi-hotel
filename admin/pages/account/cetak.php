@@ -90,8 +90,8 @@ $cetak = '<div class="card">
                       Identitas&ensp;&ensp;&ensp;:&nbsp;'.$identitas.'<br>
                       No. ID&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;:&nbsp;'.$no_id.'
                     </p>
-                <table class="table">
-                  <tbody>
+                <h2>Order Kamar</h2>
+                <table border="1" cellpadding="10" cellspacing="0">
                     <tr>
                       <td><b>Nama kamar</b></td>
                       <td><b>Tipe kamar</b></td>
@@ -109,28 +109,18 @@ $cetak = '<div class="card">
                       <td>'.$i_checkout.'</td>
                       <td>'.$harga_kamar.'</td>
                     </tr>
+                </table>
 
-                    <tr>
-                        <td> </td>
-                    </tr>
-                    <tr>
-                        <td> </td>
-                    </tr>
-                    <tr>
-                        <td> </td>
-                    </tr>
-                    <tr>
-                        <td> </td>
-                    </tr>
+                <h2>Order Tambahan</h2>
 
+                <table border="1" cellpadding="10" cellspacing="0">
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td><b>Daftar Order</b></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td><b>No</b></td>
+                      <td><b>Tanggal Order</b></td>
+                      <td><b>Nama Order</b></td>
+                      <td><b>Harga</b></td>
+                      <td><b>Jumalah</b></td>
+                      <td><b>Total</b></td>
                     </tr>
                      
                     <tr>
@@ -141,25 +131,24 @@ $cetak = '<div class="card">
                       <td>'.$banyak.'</td>
                       <td>Rp.'.$biaya_.'</td>
                     </tr>
+                </table><br>
+
+                <table align="right">
                     <tr>
-                      <td></td><td></td><td></td><td></td>
                       <td>TOTAL ORDER </td>
                       <td>= Rp.<b>'.$tot_order.'</b> </td>
                     </tr>
                     <tr>
-                      <td></td><td></td><td></td><td></td>
                       <td>DISKON KAMAR (<b>'.$diskon.'</b> %) </td>
                       <td>= Rp.<b>'.$tot_diskon.'</b></td>
                     </tr>
                     <tr>
-                      <td></td><td></td><td></td><td></td>
                       <td>TOTAL TAGIHAN </td>
                       <td>= Rp.<b>'.$tot_tagihan.'</b></td>
                     </tr>
-                  </tbody>
                 </table>
               </div>';
 $mpdf->WriteHTML($cetak);
-$mpdf->Output();
+$mpdf->Output('Detail_Transaksi_Account.pdf', 'I');
 
 ?>
