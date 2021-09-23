@@ -25,7 +25,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="post" action="pages/daftar_kamar/aksi_checkin.php" class="form-horizontal">
+              <form method="post" action="pages/check_in/aksi_checkin.php" class="form-horizontal">
                 <?php
                   include "../lib/config.php";
                   include "../lib/koneksi.php";
