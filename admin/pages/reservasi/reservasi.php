@@ -46,7 +46,7 @@
                       <td><?= $i ?>.</td>
                       <td><?= $tamu['nm_tamu'] ?></td>
                       <td><?= date("j F Y | H:i",$tamu['checkin']) ?></td>
-                      <td><?= $tamu['nm_kamar'] ?></td>
+                      <td>Kamar <?= $tamu['nm_kamar'] ?></td>
                       <td>
                             <div class="input-group-btn">
                               <a href="<?= $admin_url; ?>main.php?pages=order_tamu&id_tamu=<?= $tamu['id_tamu']; ?>" class="btn btn-success">Shop</i></a>

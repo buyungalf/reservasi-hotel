@@ -87,7 +87,7 @@
                           $q = mysqli_query($koneksi, "SELECT * FROM tb_identitas");
                           while($id=mysqli_fetch_array($q)){
                         ?>                          
-                          <option value="<?php echo $id['id_jenis']; ?>">
+                          <option value="<?php echo $id['jenis']; ?>">
                             <?php echo $id['jenis']; ?>
                           </option>
                           <?php } ?>
@@ -111,7 +111,7 @@
                     <label class="col-sm-2 col-form-label">Phone</label>
                     <div class="col-sm-10">
                       <label class="col-form-label"><?= $bo['phone'] ?></label>
-                      <input type="hidden" name="phone" value="<?= $bo['email'] ?>">
+                      <input type="hidden" name="phone" value="<?= $bo['phone'] ?>">
                     </div>
                   </div>
                   <div class="form-group row">
@@ -129,8 +129,12 @@
                 </div>         
                 <!-- /.card-body -->
                 <div class="card-footer">
+<<<<<<< HEAD
                   <button class="btn btn-default float-right ml-2">Batal</button>
                   <button type="submit" class="btn btn-info float-right">Check In</button>                  
+=======
+                  <button type="submit" class="btn btn-info float-right">Tambah</button>                  
+>>>>>>> ff5ea28e65e0044dce1e252d2885b01d8b1b4b4c
                 </div>
                 <!-- /.card-footer -->
               </form>

@@ -72,7 +72,7 @@
                           $q = mysqli_query($koneksi, "SELECT * FROM tb_identitas");
                           while($id=mysqli_fetch_array($q)){
                         ?>                          
-                          <option value="<?php echo $id['id_jenis']; ?>">
+                          <option value="<?php echo $id['jenis']; ?>">
                             <?php echo $id['jenis']; ?>
                           </option>
                           <?php } ?>
@@ -112,7 +112,6 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                	<button class="btn btn-default float-right ml-2">Batal</button>
                   <button type="submit" class="btn btn-info float-right">Check In</button>
                   
                 </div>
