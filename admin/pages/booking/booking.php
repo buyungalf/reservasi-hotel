@@ -54,7 +54,7 @@
                       <td><?= date("j/n/Y | H:i",$pesan['tgl_cekin']); ?></td>
                       <td><?= $pesan['nama'] ?></td>
                       <td><?= $pesan['alamat'] ?></td>
-                      <td><?= $pesan['email'] ?></td>
+                      <td><?= $pesan['phone'] ?></td>
                       <td>
                             <div class="input-group-btn">
                               <a href="<?= $admin_url; ?>main.php?pages=booking_detail&id_booking=<?= $pesan['id_pesan']; ?>" class="btn btn-primary"><i class="fas fa-home"></i></a>

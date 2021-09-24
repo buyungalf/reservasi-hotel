@@ -11,7 +11,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?= $admin_url ?>main.php?pages=home">Home</a></li>
               <li class="breadcrumb-item"><a href="<?= $admin_url ?>main.php?pages=reservasi">Reservasi</a></li>
-              <li class="breadcrumb-item active">Shop</li>
+              <li class="breadcrumb-item active">Check-out</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -171,6 +171,11 @@
                       
                       while($to=mysqli_fetch_array($query)){                              
                     ?>
+                      <input type="hidden" name="id_tamu_order" value="<?= $to['id_tamu_order'] ?>">
+                      <input type="hidden" name="id_order" value="<?= $to['id_order'] ?>">
+                      <input type="hidden" name="tgl_order" value="<?= $to['tgl_order'] ?>">
+                      <input type="hidden" name="banyak" value="<?= $to['banyak'] ?>">
+                      <input type="hidden" name="biaya" value="<?= $to['biaya'] ?>">
                     <tr>
                       <td><?= $i ?>.</td>
                       <td><?= date("j F Y | H:i",$to['tgl_order']) ?></td>
@@ -203,10 +208,7 @@
                   <input type="hidden" name="total_tagihan" value="<?= $total_tagihan ?>">
                 </div>          
             </div>  
-              <!-- <input type="hidden" name="id_tamu_order" value="<?= $to['id_tamu_order'] ?>">
-              <input type="hidden" name="tgl_order" value="<?= $to['tgl_order'] ?>">
-              <input type="hidden" name="banyak" value="<?= $to['banyak'] ?>">
-              <input type="hidden" name="biaya" value="<?= $to['biaya'] ?>"> -->
+
             <div class="card-body d-flex justify-content-center">
               <a href="">
                   <button type="submit" class="btn btn-success float-right">Check Out</button>
