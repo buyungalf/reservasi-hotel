@@ -10,8 +10,8 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?= $admin_url ?>main.php?pages=home">Home</a></li>
-              <li class="breadcrumb-item"><a href="<?= $admin_url ?>main.php?pages=reservasi">Reservasi</a></li>
-              <li class="breadcrumb-item active">Shop</li>
+              <li class="breadcrumb-item"><a href="<?= $admin_url ?>main.php?pages=reservasi">Booking</a></li>
+              <li class="breadcrumb-item active">Detail</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -130,7 +130,7 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button class="btn btn-default float-right ml-2">Batal</button>
-                  <button type="submit" class="btn btn-info float-right">Tambah</button>                  
+                  <button type="submit" class="btn btn-info float-right">Check In</button>                  
                 </div>
                 <!-- /.card-footer -->
               </form>

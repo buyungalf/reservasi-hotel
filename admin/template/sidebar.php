@@ -18,6 +18,7 @@
         <?php
           include "../lib/config.php";
           include "../lib/koneksi.php";
+          $page = $_GET['pages'];
           $username = $_SESSION['username'];
           $realname = $_SESSION['realname'];
           $query = mysqli_query($koneksi, "SELECT * FROM tb_user WHERE username='$username'");
@@ -33,17 +34,17 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <li class="nav-item menu-open">
-            <a href="main.php?pages=home" class="nav-link active">
+               <li class="nav-item">
+            <a href="main.php?pages=home" class = 'nav-link <?php if ($page == 'home') echo " active"; ?> '>
               <i class="nav-icon fas fa-home"></i>
               <p>
-                Home
+                Home 
               </p>
             </a>            
           </li>
           <li class="nav-header">MAIN</li>
           <li class="nav-item">
-            <a href="main.php?pages=booking" class="nav-link">
+            <a href="main.php?pages=booking" class = 'nav-link <?php if ($page == 'booking' OR $page == 'booking_detail') echo " active"; ?> '>
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Booking
@@ -51,7 +52,7 @@
             </a>            
           </li>
           <li class="nav-item">
-            <a href="main.php?pages=check_in" class="nav-link">
+            <a href="main.php?pages=check_in" class = 'nav-link <?php if ($page == 'check_in') echo " active"; ?> '>
               <i class="nav-icon fas fa-hotel"></i>
               <p>
                 Check-in
@@ -59,7 +60,7 @@
             </a>            
           </li>
           <li class="nav-item">
-            <a href="main.php?pages=reservasi" class="nav-link">
+            <a href="main.php?pages=reservasi" class = 'nav-link <?php if ($page == 'reservasi') echo " active"; ?> '>
               <i class="nav-icon fas fa-suitcase-rolling"></i>
               <p>
                 Reservasi
@@ -67,7 +68,7 @@
             </a>            
           </li>
           <li class="nav-header">MANAGE</li>          
-          <li class="nav-item">
+          <li class ='nav-item <?php if ($page == 'user') echo " menu-open"; ?> '>
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -76,15 +77,15 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="main.php?pages=user" class="nav-link">
+              <li class="nav-item"> 
+                <a href="main.php?pages=user" class = 'nav-link <?php if ($page == 'user') echo " active"; ?> '>
                   <i class="far fa-circle nav-icon"></i>
                   <p>User</p>
                 </a>
               </li>          
             </ul>
           </li> 
-          <li class="nav-item">
+          <li class ='nav-item <?php if ($page == 'site') echo " menu-open"; ?> '>
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -94,14 +95,14 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="main.php?pages=site" class="nav-link">
+                <a href="main.php?pages=site" class = 'nav-link <?php if ($page == 'site') echo " active"; ?> '>
                   <i class="far fa-circle nav-icon"></i>
                   <p>Site Interface</p>
                 </a>
               </li>          
             </ul>
           </li>
-          <li class="nav-item">
+          <li class ='nav-item <?php if ($page == 'tipe_kamar' OR $page == 'kamar') echo " menu-open"; ?> '>
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -111,20 +112,20 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="main.php?pages=tipe_kamar" class="nav-link">
+                <a href="main.php?pages=tipe_kamar" class = 'nav-link <?php if ($page == 'tipe_kamar') echo " active"; ?> '>
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tipe Kamar</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="main.php?pages=kamar" class="nav-link">
+                <a href="main.php?pages=kamar" class = 'nav-link <?php if ($page == 'kamar') echo " active"; ?> '>
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kamar</p>
                 </a>
               </li>              
             </ul>
           </li> 
-          <li class="nav-item">
+          <li class ='nav-item <?php if ($page == 'order' OR $page == 'jenis_order') echo " menu-open"; ?> '>
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -134,13 +135,13 @@
             </a>
             <ul class="nav nav-treeview">              
               <li class="nav-item">
-                <a href="main.php?pages=order" class="nav-link">
+                <a href="main.php?pages=order" class = 'nav-link <?php if ($page == 'order') echo " active"; ?> '>
                   <i class="far fa-circle nav-icon"></i>
                   <p>Order</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="main.php?pages=jenis_order" class="nav-link">
+                <a href="main.php?pages=jenis_order" class = 'nav-link <?php if ($page == 'jenis_order') echo " active"; ?> '>
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jenis Order</p>
                 </a>
