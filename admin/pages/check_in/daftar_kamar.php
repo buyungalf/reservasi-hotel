@@ -43,7 +43,7 @@
                     <?php
                             include "../lib/config.php";
                             include "../lib/koneksi.php";
-                            $query = mysqli_query($koneksi, "SELECT * FROM tb_kamar a join tb_kamar_tipe b on a.tipe = b.id_tipe ORDER BY a.status asc");
+                            $query = mysqli_query($koneksi, "SELECT * FROM tb_kamar a join tb_kamar_tipe b on a.tipe = b.id_tipe ORDER BY a.status asc, a.id_kamar asc");
                             $i=1;
                             while($k=mysqli_fetch_array($query)){                              
                           ?>

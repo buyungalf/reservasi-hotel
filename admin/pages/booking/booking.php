@@ -9,7 +9,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Order</h1>
+            <h1 class="m-0">Daftar Booking Hotel</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -70,8 +70,8 @@
             </div>
             <ul class="nav navbar-right panel_toolbox">
               <div class="input-group-btn float-right">
-              <a href="main.php?pages=tambah_order">
-                <button href="index.php" type="button" class="btn btn-primary">Tambah Daftar</button>
+              <a href="main.php?pages=check_in">
+                <button type="button" class="btn btn-primary">Tambah Daftar</button>
               </a>
             </div>                      
             </ul>

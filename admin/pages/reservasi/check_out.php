@@ -110,6 +110,18 @@
                   </div>
                 </div>
                 <div class="card-body p-0">
+                <form method="post" action="pages/reservasi/aksi_checkout.php" class="form-horizontal">
+                <input type="hidden" name="id_tamu" value="<?= $co['id_tamu'] ?>">
+                <input type="hidden" name="no_trans" value="<?= $co['no_trans'] ?>">
+                <input type="hidden" name="id_kamar" value="<?= $co['id_kamar'] ?>">
+                <input type="hidden" name="nm_tamu" value="<?= $co['nm_tamu'] ?>">
+                <input type="hidden" name="alamat" value="<?= $co['alamat'] ?>">
+                <input type="hidden" name="telp" value="<?= $co['telp'] ?>">
+                <input type="hidden" name="identitas" value="<?= $co['identitas'] ?>">
+                <input type="hidden" name="no_identitas" value="<?= $co['no_id'] ?>">
+                <input type="hidden" name="keterangan" value="<?= $co['keterangan'] ?>">
+                <input type="hidden" name="diskon" value="<?= $co['diskon'] ?>">
+                <input type="hidden" name="checkin" value="<?= $co['checkin'] ?>">
                 <h3 style="text-align: center"><b>Detail Transaksi</b></h3>
                 <table class="table mb-2">
                   <thead>
@@ -171,7 +183,10 @@
                     $i++;
                     $total_order += $to['biaya'];
                     } 
-                    $total_tagihan = $total_order + $harga_kamar;
+
+                    $tot_diskon = ($co['diskon']/100) * $harga1;
+                    $total_tagihan = ($harga_kamar + $total_order) - $tot_diskon;
+
                     ?> 
                   </tbody>
                 </table>
@@ -183,15 +198,21 @@
                 <!-- /.col -->
                 <div class=" invoice-col mb-3 mt-3 ">
                   <b>Total Order :</b> Rp. <?= number_format($total_order,2,',','.') ?><br>
-                  <b>Diskon Kamar :</b> 0%<br>
+                  <b>Diskon Kamar :</b> <?= $co['diskon'] ?>%<br>
                   <b>Total Tagihan :</b> Rp. <?= number_format($total_tagihan,2,',','.') ?>
+                  <input type="hidden" name="total_tagihan" value="<?= $total_tagihan ?>">
                 </div>          
-            </div>
+            </div>  
+              <!-- <input type="hidden" name="id_tamu_order" value="<?= $to['id_tamu_order'] ?>">
+              <input type="hidden" name="tgl_order" value="<?= $to['tgl_order'] ?>">
+              <input type="hidden" name="banyak" value="<?= $to['banyak'] ?>">
+              <input type="hidden" name="biaya" value="<?= $to['biaya'] ?>"> -->
             <div class="card-body d-flex justify-content-center">
               <a href="">
                   <button type="submit" class="btn btn-success float-right">Check Out</button>
                 </a>
             </div>
+            </form>
             <!-- /.card -->
           </div>
       </div><!-- /.container-fluid -->
