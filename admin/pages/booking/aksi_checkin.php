@@ -16,6 +16,7 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
 	$telp = $_POST['phone'];
 	$identitas = $_POST['identitas'];
 	$no_id = $_POST['no_identitas'];
+	$disc = $_POST['disc'];
 	$keterangan = $_POST['keterangan'];
 	$checkin = mktime(date("H"),date("i"),date("s"),date("m"),date("d"),date("Y"));
 

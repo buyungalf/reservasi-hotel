@@ -32,9 +32,10 @@
                 <table class="table">
                   <tbody>
                     <?php
+                      $no_trans = $_GET['no_trans'];
                       include "../lib/config.php";
                       include "../lib/koneksi.php";
-                      $query = mysqli_query($koneksi, "SELECT * FROM tb_trans_tamu");
+                      $query = mysqli_query($koneksi, "SELECT * FROM tb_trans_tamu where no_trans = '$no_trans'");
                       while($d=mysqli_fetch_array($query)){                              
                     ?>
                     <div class="card-header">

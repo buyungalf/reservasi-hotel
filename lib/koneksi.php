@@ -3,7 +3,7 @@
 $server = "localhost";
 $username = "root";
 $password = "";
-$database = "db_hotel";
+$database = "db_homestay";
 
 $koneksi = mysqli_connect($server,$username,$password,$database);
 

@@ -129,12 +129,10 @@
                 </div>         
                 <!-- /.card-body -->
                 <div class="card-footer">
-<<<<<<< HEAD
                   <button class="btn btn-default float-right ml-2">Batal</button>
                   <button type="submit" class="btn btn-info float-right">Check In</button>                  
-=======
-                  <button type="submit" class="btn btn-info float-right">Tambah</button>                  
->>>>>>> ff5ea28e65e0044dce1e252d2885b01d8b1b4b4c
+
+                  <button type="submit" class="btn btn-info float-right">Tambah</button>
                 </div>
                 <!-- /.card-footer -->
               </form>
