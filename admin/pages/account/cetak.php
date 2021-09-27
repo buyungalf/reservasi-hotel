@@ -104,10 +104,10 @@ $cetak = '<div class="card">
                     <tr>
                       <td>'.$nm_kamar.'</td>
                       <td>'.$tipe_kamar.'</td>
-                      <td>'.$harga_k.'</td>
+                      <td>Rp.'.$harga_k.'</td>
                       <td>'.$i_checkin.'</td>
                       <td>'.$i_checkout.'</td>
-                      <td>'.$harga_kamar.'</td>
+                      <td>Rp.'.$harga_kamar.'</td>
                     </tr>
                 </table>
 

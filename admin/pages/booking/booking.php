@@ -58,7 +58,7 @@
                       <td>
                             <div class="input-group-btn">
                               <a href="<?= $admin_url; ?>main.php?pages=booking_detail&id_booking=<?= $pesan['id_pesan']; ?>" class="btn btn-primary"><i class="fas fa-home"></i></a>
-                              <a href="<?= $admin_url; ?>pages/booking/aksi_hapus.php?id_booking=<?= $pesan['id_pesan']; ?>" class="btn btn-danger"><i class="fas fa-times"></i></a>
+                              <a href="<?= $admin_url; ?>pages/booking/aksi_hapus.php?id_booking=<?= $pesan['id_pesan']; ?>&no_pesan=<?= $pesan['no_pesan']; ?>" class="btn btn-danger"><i class="fas fa-times"></i></a>
                             </div>
                           </td>
                     </tr>

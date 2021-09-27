@@ -3,6 +3,31 @@
 
 
   <!-- Content Wrapper. Contains page content -->
+  <?php												
+		$tot_kamar=0;
+		$kueri = "select id_kamar from tb_kamar";
+		$proses = mysqli_query($koneksi, $kueri);
+		while ($data = mysqli_fetch_array($proses))
+		{						
+		$tot_kamar++;
+		}
+											
+		$tot_kamar_dipakai=0;
+		$kueri = "select id_kamar from tb_kamar where status = 'use'";
+		$proses = mysqli_query($koneksi, $kueri);
+		while ($data = mysqli_fetch_array($proses))
+		{						
+		$tot_kamar_dipakai++;
+		}
+											
+		$tot_kamar_kosong=0;
+		$kueri = "select id_kamar from tb_kamar where status <> 'use'";
+		$proses = mysqli_query($koneksi, $kueri);
+		while ($data = mysqli_fetch_array($proses))
+		{						
+		$tot_kamar_kosong++;
+		}
+	?>
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -31,14 +56,13 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3><?php echo"$tot_kamar" ?></h3>
 
-                <p>New Orders</p>
+                <p>Total Kamar</p>
               </div>
               <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="ion ion-person"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -46,14 +70,13 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3><?php echo"$tot_kamar_dipakai" ?></sup></h3>
 
-                <p>Bounce Rate</p>
+                <p>Kamar Dipakai</p>
               </div>
               <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -61,29 +84,13 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3><?php echo"$tot_kamar_kosong" ?></h3>
 
-                <p>User Registrations</p>
+                <p>Kamar Kosong</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="ion ion-person-stalker"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
-
-                <p>Unique Visitors</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -92,4 +99,4 @@
     </section>
     <!-- /.content -->
   </div>
-
+  
