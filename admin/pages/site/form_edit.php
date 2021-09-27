@@ -38,7 +38,7 @@
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">isi_menu</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="isi_menu" value="<?= $s['isi_menu'] ?>" placeholder="Isi Site">
+                      <textarea rows="20" cols="20" type="text" class="form-control" name="isi_menu" value="<?= $s['isi_menu'] ?>" placeholder="Isi Site"><?= $s['isi_menu'] ?></textarea>
                     </div>
                   </div>
                 </div>
