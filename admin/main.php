@@ -7,7 +7,9 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
     include "template/header.php";
     include "template/sidebar.php";
 
-    if ($_GET['pages'] == 'home') {
+    if (empty($_GET)) {
+        include "pages/home/home.php";
+    } else if ($_GET['pages'] == 'home') {
         include "pages/home/home.php";
 
     } else if ($_GET['pages'] == 'messages') {
@@ -19,6 +21,8 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
     	include "pages/account/detail.php";
     } else if ($_GET['pages'] == 'cetak') {
     	include "pages/account/index.php";
+    } else if ($_GET['pages'] == 'account_custom') {
+        include "pages/account/account_page_custom.php";
 
     } else if ($_GET['pages'] == 'site') {
     	include "pages/site/site.php";

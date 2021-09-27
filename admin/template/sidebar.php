@@ -18,11 +18,15 @@
         <?php
           include "../lib/config.php";
           include "../lib/koneksi.php";
-          $page = $_GET['pages'];
-          $username = $_SESSION['username'];
-          $realname = $_SESSION['realname'];
-          $query = mysqli_query($koneksi, "SELECT * FROM tb_user WHERE username='$username'");
-          $user = mysqli_fetch_array($query);
+          if ($_GET) {
+            $page = $_GET['pages'];
+            }
+            $username = $_SESSION['username'];
+            $realname = $_SESSION['realname'];
+            $query = mysqli_query($koneksi, "SELECT * FROM tb_user WHERE username='$username'");
+            $user = mysqli_fetch_array($query);
+          
+          
           ?>
         <div class="info">
           <a href="#" class="d-block"><?= $user['realname'] ?></a>
