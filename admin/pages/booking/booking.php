@@ -1,7 +1,4 @@
 
-
-
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -22,26 +19,26 @@
     </div>
     <!-- /.content-header -->
 <div class="col-12">
-            <div class="card">
+  <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Daftar Pemesan Kamar</h3>
+                <h3 class="card-title">DataTable with default features</h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body p-0">
-                <table class="table">
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
                   <thead>
-                    <tr>
-                      <th style="width: 20px">#</th>
-                      <th>Tanggal</th>
-                      <th>Tanggal Check-in</th>
-                      <th>Nama Pemesan</th>
-                      <th>Alamat</th>
-                      <th>No. Telpon</th>
-                      <th>Aksi</th>
-                    </tr>
+                  <tr>
+                    <th>No.</th>
+                    <th>Tanggal</th>
+                    <th>Tanggal Check In</th>
+                    <th>Nama Pemesan</th>
+                    <th>Alamat</th>
+                    <th>No. Telpon</th>
+                    <th>Aksi</th>
+                  </tr>
                   </thead>
-                  <tbody>
-                    <?php
+                  <tbody>               
+                  <?php
                             include "../lib/config.php";
                             include "../lib/koneksi.php";
                             $query = mysqli_query($koneksi, "SELECT * FROM tb_pesan order by tgl_pesan");
@@ -68,6 +65,7 @@
               </div>
               <!-- /.card-body -->
             </div>
+            <!-- /.card -->
             <ul class="nav navbar-right panel_toolbox">
               <div class="input-group-btn float-right">
               <a href="main.php?pages=check_in">

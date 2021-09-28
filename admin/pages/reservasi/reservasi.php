@@ -23,8 +23,8 @@
                 <h3 class="card-title">Daftar Tamu Hotel</h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body p-0">
-                <table class="table">
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
                       <th style="width: 20px">#</th>

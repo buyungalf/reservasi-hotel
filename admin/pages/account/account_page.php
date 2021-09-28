@@ -133,13 +133,14 @@
               </div>              
               <!-- /.card-header -->
               <div class="card-body p-0">
-                <table class="table">
+                <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
                       <th style="width: 20px">#</th>
                       <th>Tanggal</th>
                       <th>No Transaksi</th>
                       <th>Total Pemasukan</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody>
