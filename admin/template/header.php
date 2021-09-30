@@ -56,6 +56,12 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="main.php?pages=account" class="nav-link">LAPORAN PEMASUKAN</a>
       </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="main.php?pages=laporan_kamar" class="nav-link">LAPORAN KAMAR</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="main.php?pages=laporan_order" class="nav-link">LAPORAN ORDER</a>
+      </li>
     </ul>
 
     <!-- Right navbar links -->

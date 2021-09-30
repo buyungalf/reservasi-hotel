@@ -23,7 +23,7 @@
     </div>
     <!-- /.content-header -->
 <div class="col-12">
-            <div class="card">
+            <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">Detail Transaksi Account</h3>
               </div>
@@ -36,20 +36,27 @@
                       include "../lib/config.php";
                       include "../lib/koneksi.php";
                       $query = mysqli_query($koneksi, "SELECT * FROM tb_trans_tamu where no_trans = '$no_trans'");
-                      while($d=mysqli_fetch_array($query)){                              
+                      while($d=mysqli_fetch_array($query)){  
+                        $no_trans_ = $d['no_trans'];
+                        $nm_tamu_ = $d['nm_tamu'];
+                        $alamat_ = $d['alamat'];
+                        $identitas_ = $d['identitas'];
+                        $no_id_ = $d['no_id'];
+                        $id_tamu_ = $d['id_tamu'];
+
                     ?>
                     <div class="card-header">
-                      No Trans&ensp;&ensp;&ensp;:&nbsp;<?= $d['no_trans'] ?><br>
-                      Nama&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;:&nbsp;<?= $d['nm_tamu'] ?><br>
-                      Alamat&nbsp;&ensp;&ensp;&ensp;&ensp;:&nbsp;<?= $d['alamat'] ?><br>
-                      Identitas&ensp;&ensp;&ensp;:&nbsp;<?= $d['identitas'] ?><br>
-                      No. ID&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;:&nbsp;<?= $d['no_id'] ?>
+                      No Trans&ensp;&ensp;&ensp;:&nbsp;<?php echo"$no_trans_" ?><br>
+                      Nama&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;:&nbsp;<?php echo"$nm_tamu_" ?><br>
+                      Alamat&nbsp;&ensp;&ensp;&ensp;&ensp;:&nbsp;<?php echo"$alamat_" ?><br>
+                      Identitas&ensp;&ensp;&ensp;:&nbsp;<?php echo"$identitas_" ?><br>
+                      No. ID&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;:&nbsp;<?php echo"$no_id_" ?>
                     </div>
                     <?php } ?> 
                     <?php
                     include "../lib/config.php";
                     include "../lib/koneksi.php";
-                    $query = mysqli_query($koneksi, "SELECT * FROM tb_trans_tamu");
+                    $query = mysqli_query($koneksi, "SELECT * FROM tb_trans_tamu where id_tamu = $id_tamu_");
                     while($d=mysqli_fetch_array($query)){
                       $id_tamu = $d['id_tamu'];
                       $id_kamar = $d['id_kamar'];
@@ -69,7 +76,11 @@
                       $get_tahun_out = date("Y",$d['checkout']);
                       $get_jam_out = date("H",$d['checkout']);
                       $get_menit_out = date("i",$d['checkout']);
-                      $get_detik_out = date("s",$d['checkout']);}
+                      $get_detik_out = date("s",$d['checkout']);
+                    
+                      $get_13 = date("H",13);
+                      $get_15 = date("H",15);
+                      $get_17 = date("H",17);}
                     
                     $query1 = mysqli_query($koneksi, "SELECT a.nm_kamar, b.tipe_kamar, b.harga from tb_kamar a, tb_kamar_tipe b where a.tipe = b.id_tipe and id_kamar = $id_kamar");
                     while($e=mysqli_fetch_array($query1)){
@@ -82,7 +93,18 @@
                     if ($lama_sewa <=0){
                       $harga_kamar = $harga;
                     }else{
-                      $harga_kamar = $harga * $lama_sewa;
+                      if ($get_jam_out >= $get_13 | $get_jam_out <= $get_15)
+                      {
+                        $harga_kamar = ($harga + ((25/100) * $harga)) * $lama_sewa;
+                      }
+                      else if ($get_jam_out > $get_15 | $get_jam_out <= $get_17)
+                      {
+                        $harga_kamar = ($harga + ((50/100) * $harga)) * $lama_sewa;
+                      }
+                      else if ($get_jam_out > $get_17)
+                      {
+                        $harga_kamar = $harga * $lama_sewa;
+                      }
                     }?>
 
                     <tr>
@@ -108,7 +130,6 @@
                       <td></td>
                       <td></td>
                       <td><b>Daftar Order</b></td>
-                      <td></td>
                       <td></td>
                       <td></td>
                     </tr>
@@ -143,13 +164,12 @@
 				            		<td><div>Tidak Ada Order </div></td>
                         <td></td>
                         <td></td>
-                        <td></td>
 					            	</tr>";
 					          }
 				          	?>
 
                     <?php
-                    $kueri1 = mysqli_query($koneksi, "SELECT SUM(biaya) FROM tb_trans_tamu_order");
+                    $kueri1 = mysqli_query($koneksi, "SELECT SUM(biaya) FROM tb_trans_tamu_order where id_tamu = $id_tamu_");
                     while ($c = mysqli_fetch_array($kueri1))
                     {
                     $biaya = $c['SUM(biaya)'];
@@ -182,7 +202,7 @@
                       <td></td><td></td><td></td>
                       <td>
                         <div>
-                          <a href="./pages/account/cetak.php" class="btn btn-secondary" target='_blank'>CETAK</a>
+                          <a href="./pages/account/cetak.php&no_trans=<?= $a['no_trans']; ?>" class="btn btn-secondary" target='_blank'>CETAK</a>
                         </div>
                       </td>
                       <td></td><td></td><td></td>

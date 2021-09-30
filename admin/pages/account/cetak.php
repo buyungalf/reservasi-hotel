@@ -1,9 +1,10 @@
 <?php
+    $no_trans = $_GET['no_trans'];
     include "../../../lib/config.php";
     include "../../../lib/koneksi.php";
-    $query = mysqli_query($koneksi, "SELECT * FROM tb_trans_tamu");
+    $query = mysqli_query($koneksi, "SELECT * FROM tb_trans_tamu where no_trans = $no_trans");
     while($d=mysqli_fetch_array($query)){
-        $no_trans = $d['no_trans'];
+        $no_trans_ = $d['no_trans'];
         $nm_tamu = $d['nm_tamu'];
         $alamat = $d['alamat'];
         $identitas = $d['identitas'];
@@ -84,7 +85,7 @@ $cetak = '<div class="card">
               <!-- /.card-header -->
               <div class="card-body p-0">
                     <p>
-                      No Trans&ensp;&ensp;&ensp;:&nbsp;'.$no_trans.'<br>
+                      No Trans&ensp;&ensp;&ensp;:&nbsp;'.$no_trans_.'<br>
                       Nama &nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;:&nbsp;'.$nm_tamu.'<br>
                       Alamat &nbsp;&ensp;&ensp;&ensp;&ensp;:&nbsp;'.$alamat.'<br>
                       Identitas&ensp;&ensp;&ensp;:&nbsp;'.$identitas.'<br>

@@ -161,7 +161,6 @@
                       <td>
                         <div class="input-group-btn">
                           <a href="<?= $admin_url; ?>main.php?pages=detail_account&no_trans=<?= $a['no_trans']; ?>" class="btn btn-secondary"> DETAIL </a>
-                          <a href="./pages/account/cetak.php" class="btn btn-dark" target='_blank'>CETAK</a>
                         </div>
                       </td>
                     </tr>

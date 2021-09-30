@@ -65,11 +65,11 @@
                   {
                     if ($get_jam_skr >= $get_13 | $get_jam_skr <= $get_15)
                     {
-                      $harga_kamar = $harga1 + ((25/100) * $harga1) * $lama_sewa;
+                      $harga_kamar = ($harga1 + ((25/100) * $harga1)) * $lama_sewa;
                     }
                     else if ($get_jam_skr > $get_15 | $get_jam_skr <= $get_17)
                     {
-                      $harga_kamar = $harga1 + ((50/100) * $harga1) * $lama_sewa;
+                      $harga_kamar = ($harga1 + ((50/100) * $harga1)) * $lama_sewa;
                     }
                     else if ($get_jam_skr < $get_17)
                     {
