@@ -95,7 +95,7 @@ require_once __DIR__ . './vendor/autoload.php';
 $mpdf = new \Mpdf\Mpdf();
 $cetak = '<div class="card">
               <div class="card-header">
-                <h1 class="card-title">Detail Transaksi Account</h1>
+                <h1 class="card-title">INVOICE</h1>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
@@ -106,7 +106,7 @@ $cetak = '<div class="card">
                       Identitas&ensp;&ensp;&ensp;:&nbsp;'.$identitas.'<br>
                       No. ID&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;:&nbsp;'.$no_id.'
                     </p>
-                <h2>Order Kamar</h2>
+                <h2>Data Kamar</h2>
                 <table border="1" cellpadding="10" cellspacing="0">
                     <tr>
                       <td><b>Nama kamar</b></td>
@@ -125,7 +125,7 @@ $cetak = '<div class="card">
                       <td>'.$harga_kamar.'</td>
                     </tr>
                 </table>
-                <h2>Order Tambahan</h2>
+                <h2>Data Tambahan</h2>
                 <table border="1" cellpadding="10" cellspacing="0">
                     <tr>
                       <td><b>No</b></td>
