@@ -33,7 +33,8 @@
                   $co=mysqli_fetch_array($query);
                   $i=1; 
 
-                  $harga1 = $co['harga'];     
+                  $harga1 = $co['harga'];  
+                  $no_trans = $co['no_trans'];   
                   $get_tanggal = date("j",$co['checkin']);
                   $get_bulan = date("n",$co['checkin']);
                   $get_tahun = date("Y",$co['checkin']);

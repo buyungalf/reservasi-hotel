@@ -24,8 +24,8 @@
               </div>              
               <!-- /.card-header -->
               <div class="card-body p-0">
-                <table class="table">
-                  <tbody>
+                <table id="example1" class="table table-bordered table-striped">
+                <thead>
                     <tr>
                       <th>No</th>
                       <th>No Transaksi</th>
@@ -35,6 +35,8 @@
                       <th>Check-in</th>
                       <th>Check-out</th>
                     </tr>
+                </thead>  
+                <tbody>
                   <?php
                     include "../lib/config.php";
                     include "../lib/koneksi.php";
