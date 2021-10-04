@@ -31,6 +31,7 @@
               <div class="card-body p-0">
                 <table class="table">
                   <tbody>
+                    
                     <?php
                       $no_trans = $_GET['no_trans'];
                       include "../lib/config.php";
@@ -42,9 +43,8 @@
                         $alamat_ = $d['alamat'];
                         $identitas_ = $d['identitas'];
                         $no_id_ = $d['no_id'];
-                        $id_tamu_ = $d['id_tamu'];
-
-                    ?>
+                        $id_tamu_ = $d['id_tamu'];?>
+                        
                     <div class="card-header">
                       No Trans&ensp;&ensp;&ensp;:&nbsp;<?php echo"$no_trans_" ?><br>
                       Nama&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;:&nbsp;<?php echo"$nm_tamu_" ?><br>
@@ -198,17 +198,13 @@
                       <td></td><td></td><td></td><td></td><td></td>
                       <td>TOTAL TAGIHAN = Rp.<b><?php echo"$tot_tagihan" ?></b></td>
                     </tr>
-                    <tr>
-                      <td></td><td></td><td></td>
-                      <td>
-                        <div>
-                          <a href="./pages/account/cetak.php&no_trans=<?= $a['no_trans']; ?>" class="btn btn-secondary" target='_blank'>CETAK</a>
-                        </div>
-                      </td>
-                      <td></td><td></td><td></td>
-                    </tr>
                   </tbody>
                 </table>
+                <div class="card-body d-flex justify-content-center">
+                <a href="./pages/account/cetak.php?no_trans=<?php echo"$no_trans_" ?>"  target='_blank'>
+                  <button class="btn btn-secondary float-right">CETAK</button>
+                </a>
+                </div>
               </div>
               <!-- /.card-body -->
             </div>

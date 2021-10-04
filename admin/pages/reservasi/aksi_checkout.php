@@ -47,7 +47,7 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
 						$queryHapus3 = mysqli_query($koneksi, "DELETE from tb_tamu where id_tamu = $id_tamu");
 						if ($queryHapus3) 
 						{
-							echo "<script> alert('Checkout berhasil'); window.location = '$admin_url'+'main.php?pages=reservasi';</script>";
+							echo "<script> alert('Checkout berhasil'); window.location = '$admin_url'+'main.php?pages=reservasi'; window.open('$admin_url'+'./pages/account/cetak.php?no_trans=$no_trans','_blank');</script>";
 						} else {
 							echo"<script> alert('Data Gagal dihapus 3'); window.location = '$admin_url'+'main.php?pages=check_out&id_tamu=$id_tamu'; </script>";
 						}

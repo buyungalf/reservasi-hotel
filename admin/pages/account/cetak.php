@@ -2,14 +2,14 @@
     $no_trans = $_GET['no_trans'];
     include "../../../lib/config.php";
     include "../../../lib/koneksi.php";
-    $query = mysqli_query($koneksi, "SELECT * FROM tb_trans_tamu where no_trans = $no_trans");
+    $query = mysqli_query($koneksi, "SELECT * FROM tb_trans_tamu where no_trans = '$no_trans'");
     while($d=mysqli_fetch_array($query)){
         $no_trans_ = $d['no_trans'];
         $nm_tamu = $d['nm_tamu'];
         $alamat = $d['alamat'];
         $identitas = $d['identitas'];
         $no_id = $d['no_id'];}
-    $query = mysqli_query($koneksi, "SELECT * FROM tb_trans_tamu");
+    $query = mysqli_query($koneksi, "SELECT * FROM tb_trans_tamu where no_trans = '$no_trans'");
     while($d=mysqli_fetch_array($query)){
       $id_tamu = $d['id_tamu'];
       $id_kamar = $d['id_kamar'];
@@ -29,7 +29,11 @@
       $get_tahun_out = date("Y",$d['checkout']);
       $get_jam_out = date("H",$d['checkout']);
       $get_menit_out = date("i",$d['checkout']);
-      $get_detik_out = date("s",$d['checkout']);}
+      $get_detik_out = date("s",$d['checkout']);
+    
+      $get_13 = date("H",13);
+      $get_15 = date("H",15);
+      $get_17 = date("H",17);}
     
     $query1 = mysqli_query($koneksi, "SELECT a.nm_kamar, b.tipe_kamar, b.harga from tb_kamar a, tb_kamar_tipe b where a.tipe = b.id_tipe and id_kamar = $id_kamar");
     while($e=mysqli_fetch_array($query1)){
@@ -42,7 +46,18 @@
     if ($lama_sewa <=0){
       $harga_kamar = $harga_k;
     }else{
-      $harga_kamar = $harga_k * $lama_sewa;
+      if ($get_jam_out >= $get_13 | $get_jam_out <= $get_15)
+      {
+        $harga_kamar = ($harga + ((25/100) * $harga)) * $lama_sewa;
+      }
+      else if ($get_jam_out > $get_15 | $get_jam_out <= $get_17)
+      {
+        $harga_kamar = ($harga + ((50/100) * $harga)) * $lama_sewa;
+      }
+      else if ($get_jam_out > $get_17)
+      {
+        $harga_kamar = $harga * $lama_sewa;
+      }
     }
     $no=0;
     $tot_biaya = 0;
@@ -56,7 +71,7 @@
     $no++;}
 ?>
 <?php
-    $kueri1 = mysqli_query($koneksi, "SELECT SUM(biaya) FROM tb_trans_tamu_order");
+    $kueri1 = mysqli_query($koneksi, "SELECT SUM(biaya) FROM tb_trans_tamu_order where id_tamu = $id_tamu");
     while ($c = mysqli_fetch_array($kueri1))
     {
     $biaya = $c['SUM(biaya)'];
@@ -80,7 +95,7 @@ require_once __DIR__ . './vendor/autoload.php';
 $mpdf = new \Mpdf\Mpdf();
 $cetak = '<div class="card">
               <div class="card-header">
-                <h1 class="card-title">Detail Transaksi Account</h1>
+                <h1 class="card-title">INVOICE</h1>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
@@ -91,7 +106,7 @@ $cetak = '<div class="card">
                       Identitas&ensp;&ensp;&ensp;:&nbsp;'.$identitas.'<br>
                       No. ID&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;:&nbsp;'.$no_id.'
                     </p>
-                <h2>Order Kamar</h2>
+                <h2>Data Kamar</h2>
                 <table border="1" cellpadding="10" cellspacing="0">
                     <tr>
                       <td><b>Nama kamar</b></td>
@@ -101,19 +116,16 @@ $cetak = '<div class="card">
                       <td><b>Check-out</b></td>
                       <td><b>Total</b></td>
                     </tr>
-
                     <tr>
                       <td>'.$nm_kamar.'</td>
                       <td>'.$tipe_kamar.'</td>
-                      <td>Rp.'.$harga_k.'</td>
+                      <td>'.$harga_k.'</td>
                       <td>'.$i_checkin.'</td>
                       <td>'.$i_checkout.'</td>
-                      <td>Rp.'.$harga_kamar.'</td>
+                      <td>'.$harga_kamar.'</td>
                     </tr>
                 </table>
-
-                <h2>Order Tambahan</h2>
-
+                <h2>Data Tambahan</h2>
                 <table border="1" cellpadding="10" cellspacing="0">
                     <tr>
                       <td><b>No</b></td>
@@ -133,7 +145,6 @@ $cetak = '<div class="card">
                       <td>Rp.'.$biaya_.'</td>
                     </tr>
                 </table><br>
-
                 <table align="right">
                     <tr>
                       <td>TOTAL ORDER </td>
