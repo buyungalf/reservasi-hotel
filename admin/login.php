@@ -5,9 +5,7 @@ $username = $_POST['username'];
 $password = md5($_POST['password']);
 
 if (!ctype_alnum($username) or !ctype_alnum($password)) {
-	echo "<center>LOGIN GAGAL! <br>
-		Username atau Password Anda salah. <br>";
-	echo "<a href=index.php><b>ULANGI LAGI</b></a></center>";
+	include "login2.php";
 } else {
 	$login = mysqli_query($koneksi, "SELECT * FROM tb_user WHERE username='$username' AND password='$password'");
 	$match = mysqli_num_rows($login);
@@ -22,6 +20,6 @@ if (!ctype_alnum($username) or !ctype_alnum($password)) {
 		$_SESSION['status'] = $u['status'];
 		header('location:main.php?pages=home');
 	} else {
-		echo 'password salah <a href=index.php><b>ULANGI LAGI</b></a></center>';
+		include "login2.php";
 	}
 }
