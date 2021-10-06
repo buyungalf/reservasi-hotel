@@ -24,26 +24,30 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
 	$tgl = date("j",$checkin);
 	$bln = date("n",$checkin);
 	$thn = date("Y",$checkin);
-	
-	$id_tamu_order = $_POST['id_tamu_order'];
-	$tgl_order = $_POST['tgl_order'];
-	$id_order = $_POST['id_order'];
-	$banyak = $_POST['banyak'];
-	$biaya = $_POST['biaya'];
+
+	$query = mysqli_query($koneksi, "SELECT * from tb_tamu_order WHERE id_tamu = $id_tamu");
+	while($data=mysqli_fetch_array($query)){
+	$id_tamu_order_ = $data['id_tamu_order'];
+	$id_tamu_ = $data['id_tamu'];
+	$tgl_order_ = $data['tgl_order'];
+	$id_kamar_ = $data['id_kamar'];
+	$id_order_ = $data['id_order'];
+	$banyak_ = $data['banyak'];
+	$biaya_ = $data['biaya'];}
 
 	$querySimpan = mysqli_query($koneksi,"INSERT into tb_trans_tot (no_trans, tgl_trans, bln_trans, thn_trans, total) values ('$no_trans','$tgl','$bln','$thn','$total_tagihan')");
 	if ($querySimpan) 
 	{
-		$queryHapus1 = mysqli_query($koneksi, "DELETE from tb_tamu_order where id_tamu = $id_tamu");
-		if ($queryHapus1) 
+		$queryInsert = mysqli_query($koneksi, "INSERT into tb_trans_tamu_order SELECT * from tb_tamu_order WHERE id_tamu = $id_tamu");
+		if ($queryInsert) 
 		{
-			$queryHapus2 = mysqli_query($koneksi, "UPDATE tb_kamar set status='free' where id_kamar=$id_kamar");
-			if ($queryHapus2) 
+			$queryHapus1 = mysqli_query($koneksi, "UPDATE tb_kamar set status='free' where id_kamar=$id_kamar");
+			if ($queryHapus1) 
 			{
-				$queryInsert = mysqli_query($koneksi, "INSERT into tb_trans_tamu (id_tamu, no_trans, id_kamar, nm_tamu, alamat, telp, identitas, no_id, keterangan, diskon, checkin, checkout) values ('$id_tamu','$no_trans','$id_kamar','$nm_tamu','$alamat','$telp','$identitas','$no_identitas','$keterangan','$diskon','$checkin','$checkout')");
-				if ($queryInsert) {
-					$queryInsert2 = mysqli_query($koneksi, "INSERT into tb_trans_tamu_order (id_tamu_order, id_tamu, id_kamar, tgl_order, id_order, banyak, biaya) values ('$id_tamu_order','$id_tamu','$id_kamar','$tgl_order','$id_order','$banyak','$biaya')");
-					if ($queryInsert2) {
+				$queryInsert2 = mysqli_query($koneksi, "INSERT into tb_trans_tamu (id_tamu, no_trans, id_kamar, nm_tamu, alamat, telp, identitas, no_id, keterangan, diskon, checkin, checkout) values ('$id_tamu','$no_trans','$id_kamar','$nm_tamu','$alamat','$telp','$identitas','$no_identitas','$keterangan','$diskon','$checkin','$checkout')");
+				if ($queryInsert2) {
+					$queryHapus2 = mysqli_query($koneksi, "DELETE from tb_tamu_order where id_tamu = $id_tamu");
+					if ($queryHapus2) {
 						$queryHapus3 = mysqli_query($koneksi, "DELETE from tb_tamu where id_tamu = $id_tamu");
 						if ($queryHapus3) 
 						{
@@ -52,16 +56,16 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
 							echo"<script> alert('Data Gagal dihapus 3'); window.location = '$admin_url'+'main.php?pages=check_out&id_tamu=$id_tamu'; </script>";
 						}
 					} else {				
-						echo"<script> alert('Data Gagal diinsert'); window.location = '$admin_url'+'main.php?pages=check_out&id_tamu=$id_tamu'; </script>";
+						echo"<script> alert('Data Gagal dihapus 2'); window.location = '$admin_url'+'main.php?pages=check_out&id_tamu=$id_tamu'; </script>";
 					}
 				} else {
-					echo"<script> alert('Data Gagal diinsert'); window.location = '$admin_url'+'main.php?pages=check_out&id_tamu=$id_tamu'; </script>";
+					echo"<script> alert('Data Gagal diinsert 2'); window.location = '$admin_url'+'main.php?pages=check_out&id_tamu=$id_tamu'; </script>";
 				}
 			} else {
-				echo"<script> alert('Data Gagal dihapus 2'); window.location = '$admin_url'+'main.php?pages=check_out&id_tamu=$id_tamu'; </script>";
+				echo"<script> alert('Data Gagal dihapus 1'); window.location = '$admin_url'+'main.php?pages=check_out&id_tamu=$id_tamu'; </script>";
 			}
 		} else{
-			echo"<script> alert('Data Gagal dihapus 1'); window.location = '$admin_url'+'main.php?pages=check_out&id_tamu=$id_tamu'; </script>";
+			echo"<script> alert('Data Gagal diinsert 1'); window.location = '$admin_url'+'main.php?pages=check_out&id_tamu=$id_tamu'; </script>";
 		}			
 	} else {
 			echo "<script> alert('Checkout gagal'); window.location = '$admin_url'+'main.php?pages=reservasi';</script>";

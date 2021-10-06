@@ -59,16 +59,6 @@
         $harga_kamar = $harga * $lama_sewa;
       }
     }
-    $no=0;
-    $tot_biaya = 0;
-    $kueri = mysqli_query($koneksi,"select b.tgl_order, c.nm_order, c.harga, b.banyak, b.biaya from tb_trans_tamu_order b, tb_order c where b.id_order = c.id and b.id_tamu = $id_tamu order by b.tgl_order desc");
-    while ($data = mysqli_fetch_array($kueri)){
-    $tgl_order = date("j/n/Y | H:i",$data['tgl_order']);
-    $nm_order = $data['nm_order'];
-    $harga = $data['harga'];
-    $banyak = $data['banyak'];
-    $biaya_ = $data['biaya'];						
-    $no++;}
 ?>
 <?php
     $kueri1 = mysqli_query($koneksi, "SELECT SUM(biaya) FROM tb_trans_tamu_order where id_tamu = $id_tamu");
@@ -88,23 +78,27 @@
     $tot_tagihan = ($harga_kamar + $tot_order) - $tot_diskon;
     ?>
 
-<?php
-
-require_once __DIR__ . './vendor/autoload.php';
-
-$mpdf = new \Mpdf\Mpdf();
-$cetak = '<div class="card">
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+  '<div class="card">
               <div class="card-header">
                 <h1 class="card-title">INVOICE</h1>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
                     <p>
-                      No Trans&ensp;&ensp;&ensp;:&nbsp;'.$no_trans_.'<br>
-                      Nama &nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;:&nbsp;'.$nm_tamu.'<br>
-                      Alamat &nbsp;&ensp;&ensp;&ensp;&ensp;:&nbsp;'.$alamat.'<br>
-                      Identitas&ensp;&ensp;&ensp;:&nbsp;'.$identitas.'<br>
-                      No. ID&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;:&nbsp;'.$no_id.'
+                      No Trans&ensp;&ensp;&ensp;:&nbsp;<?php echo"$no_trans_" ?><br>
+                      Nama &nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;:&nbsp;<?php echo"$nm_tamu" ?><br>
+                      Alamat &nbsp;&ensp;&ensp;&ensp;&ensp;:&nbsp;<?php echo"$alamat"?><br>
+                      Identitas&ensp;&ensp;&ensp;:&nbsp;<?php echo"$identitas"?><br>
+                      No. ID&nbsp;&ensp;&ensp;&ensp;&ensp;&ensp;:&nbsp;<?php echo"$no_id"?>
                     </p>
                 <h2>Data Kamar</h2>
                 <table border="1" cellpadding="10" cellspacing="0">
@@ -117,12 +111,12 @@ $cetak = '<div class="card">
                       <td><b>Total</b></td>
                     </tr>
                     <tr>
-                      <td>'.$nm_kamar.'</td>
-                      <td>'.$tipe_kamar.'</td>
-                      <td>'.$harga_k.'</td>
-                      <td>'.$i_checkin.'</td>
-                      <td>'.$i_checkout.'</td>
-                      <td>'.$harga_kamar.'</td>
+                      <td><?php echo"$nm_kamar"?>"</td>
+                      <td><?php echo"$tipe_kamar"?></td>
+                      <td><?php echo"$harga_k"?></td>
+                      <td><?php echo"$i_checkin"?></td>
+                      <td><?php echo"$i_checkout"?></td>
+                      <td><?php echo"$harga_kamar"?></td>
                     </tr>
                 </table>
                 <h2>Data Tambahan</h2>
@@ -136,30 +130,54 @@ $cetak = '<div class="card">
                       <td><b>Total</b></td>
                     </tr>
                      
+                    <?php										
+					          $no=0;
+					          $tot_biaya = 0;
+					          $kueri = mysqli_query($koneksi,"select b.tgl_order, c.nm_order, c.harga, b.banyak, b.biaya from tb_trans_tamu_order b, tb_order c where b.id_order = c.id and b.id_tamu = $id_tamu order by b.tgl_order desc");
+					          while ($data = mysqli_fetch_array($kueri)){
+					          $tgl_order = date("j/n/Y | H:i",$data['tgl_order']);
+					          $nm_order = $data['nm_order'];
+					          $harga = $data['harga'];
+					          $banyak = $data['banyak'];
+					          $biaya = $data['biaya'];						
+					          $no++;?>
+					 
                     <tr>
-                      <td>'.$no.'</td>
-                      <td>'.$tgl_order.'</td>
-                      <td>'.$nm_order.'</td>
-                      <td>Rp.'.$harga.'</td>
-                      <td>'.$banyak.'</td>
-                      <td>Rp.'.$biaya_.'</td>
+                      <td><?php echo"$no" ?></td>
+                      <td><?php echo"$tgl_order" ?></td>
+                      <td><?php echo"$nm_order" ?></td>
+                      <td>Rp.<?php echo"$harga" ?></td>
+                      <td><?php echo"$banyak" ?></td>
+                      <td>Rp.<?php echo"$biaya" ?></td>
                     </tr>
+					
+					          <?php }?>
                 </table><br>
                 <table align="right">
                     <tr>
                       <td>TOTAL ORDER </td>
-                      <td>= Rp.<b>'.$tot_order.'</b> </td>
+                      <td>= Rp.<b><?php echo"$tot_order"?></b> </td>
                     </tr>
                     <tr>
-                      <td>DISKON KAMAR (<b>'.$diskon.'</b> %) </td>
-                      <td>= Rp.<b>'.$tot_diskon.'</b></td>
+                      <td>DISKON KAMAR (<b><?php echo"$diskon"?></b> %) </td>
+                      <td>= Rp.<b><?php echo"$tot_diskon"?></b></td>
                     </tr>
                     <tr>
                       <td>TOTAL TAGIHAN </td>
-                      <td>= Rp.<b>'.$tot_tagihan.'</b></td>
+                      <td>= Rp.<b><?php echo"$tot_tagihan"?></b></td>
                     </tr>
                 </table>
-              </div>';
+              </div>'
+  </body>
+  </html>
+
+<?php
+
+require_once __DIR__ . './vendor/autoload.php';
+
+$mpdf = new \Mpdf\Mpdf();
+$cetak = ob_get_contents();
+ob_clean();
 $mpdf->WriteHTML($cetak);
 $mpdf->Output('Detail_Transaksi_Account.pdf', 'I');
 
