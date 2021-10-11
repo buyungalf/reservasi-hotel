@@ -87,7 +87,7 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
             include "pages/booking/booking_detail.php";
 
         } else if ($_GET['pages'] == 'test') {
-            include "pages/booking/test.php";
+            include "pages/home/home2.php";
 
         } else if ($_GET['pages'] == 'reservasi') {
             include "pages/reservasi/reservasi.php";        
