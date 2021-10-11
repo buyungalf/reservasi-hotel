@@ -63,7 +63,7 @@ $tgl = $_GET['tanggal'];
                   <?php
                     include "../lib/config.php";
                     include "../lib/koneksi.php";
-                    $query = mysqli_query($koneksi, "SELECT * FROM tb_trans_tamu_order a, tb_trans_tamu b, tb_kamar c, tb_order d where a.id_tamu = b.id_tamu and a.id_kamar = c.id_kamar and a.id_order = d.id");
+                    $query = mysqli_query($koneksi, "SELECT * FROM tb_trans_tamu_order a, tb_trans_tamu b, tb_kamar c, tb_order d where a.id_tamu = b.id_tamu and a.id_kamar = c.id_kamar and a.id_order = d.id and a.tgl_order = $tgl");
                     $i=1;
                     while($d=mysqli_fetch_array($query)){
                       $nm_tamu = $d['nm_tamu'];
