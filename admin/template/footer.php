@@ -89,6 +89,19 @@
       "responsive": true,
     });
   });
+</script> 
+<script src="asset/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Page specific script -->
+<!-- InputMask -->
+<script src="asset/plugins/moment/moment.min.js"></script>
+<script src="asset/plugins/inputmask/jquery.inputmask.min.js"></script>
+<script>
+  $(function () {
+    //Date picker
+    $('#reservationdate').datetimepicker({
+        format: 'DD/MM/YYYY'
+    });
+  })
 </script>
 
 </body>

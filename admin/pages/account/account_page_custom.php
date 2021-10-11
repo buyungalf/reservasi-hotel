@@ -1,8 +1,6 @@
 <?php
-$tgl1 = $_GET['tgl_awal'];
 $bln1 = $_GET['bln_awal'];
 $thn1 = $_GET['thn_awal'];
-$tgl2 = $_GET['tgl_akhir'];
 $bln2 = $_GET['bln_akhir'];
 $thn2 = $_GET['thn_akhir'];
 ?>
@@ -37,16 +35,6 @@ $thn2 = $_GET['thn_akhir'];
                       <td align="left">
                         <div>
                           <b>
-                            <select name="tgl_awal" size="1" id="tgl_cekin" class="formSelect">
-                              <?php
-                                if($act=="edit"){
-                                  echo"<option value=\"$mulai[0]\" selected>$mulai[0]</option>";
-                                }
-                                for($s=1;$s<=31;$s++){
-                                  echo"<option value=\"$s\">$s</option>";
-                                }
-                              ?>
-                            </select>
                             <select name="bln_awal" size="1" id="bln" class="formSelect">
                               <?php
                                 if($act=="edit"){
@@ -88,16 +76,6 @@ $thn2 = $_GET['thn_akhir'];
                       <td align="left">
                         <div>
                           <b>
-                            <select name="tgl_akhir" size="1" id="tgl_cekin" class="formSelect">
-                              <?php
-                                if($act=="edit"){
-                                  echo"<option value=\"$mulai[0]\" selected>$mulai[0]</option>";
-                                }
-                                for($s=1;$s<=31;$s++){
-                                  echo"<option value=\"$s\">$s</option>";
-                                }
-                              ?>
-                            </select>
                             <select name="bln_akhir" size="1" id="bln" class="formSelect">
                               <?php
                                 if($act=="edit"){
@@ -135,7 +113,7 @@ $thn2 = $_GET['thn_akhir'];
                   </table>
                 </div>
                 <div>
-                	<h3 class="card-title">Periode <?= $tgl1 ?>-<?= $bln1 ?>-<?= $thn1 ?> s/d <?= $tgl2 ?>-<?= $bln2 ?>-<?= $thn2 ?></h3>
+                	<h3 class="card-title">Periode <?= $bln1 ?>-<?= $thn1 ?> s/d <?= $bln2 ?>-<?= $thn2 ?></h3>
                 </div>
                 <div class="input-group-btn mt-2" style="display: flex; justify-content: flex-end">
                   <button type="submit">Tampilkan </button>
@@ -159,7 +137,7 @@ $thn2 = $_GET['thn_akhir'];
                       include "../lib/config.php";
                       include "../lib/koneksi.php";                         
 
-                      $query = mysqli_query($koneksi, "SELECT * FROM tb_trans_tot WHERE tgl_trans BETWEEN $tgl1 AND $tgl2 AND bln_trans BETWEEN $bln1 AND $bln2 AND thn_trans BETWEEN $thn1 AND $thn2; ");
+                      $query = mysqli_query($koneksi, "SELECT * FROM tb_trans_tot WHERE bln_trans BETWEEN $bln1 AND $bln2 AND thn_trans BETWEEN $thn1 AND $thn2; ");
                       $i=1;
                       while($a=mysqli_fetch_array($query)){                              
                     ?>

@@ -18,8 +18,12 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
 
         } else if ($_GET['pages'] == 'laporan_kamar') {
             include "pages/guest/kamar.php";
+        } else if ($_GET['pages'] == 'kamar_custom') {
+            include "pages/guest/kamar_custom.php";
         } else if ($_GET['pages'] == 'laporan_order') {
             include "pages/guest/order.php";
+        } else if ($_GET['pages'] == 'order_custom') {
+            include "pages/guest/order_custom.php";
 
         } else if ($_GET['pages'] == 'account') {
             include "pages/account/account_page.php";

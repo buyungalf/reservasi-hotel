@@ -21,6 +21,22 @@
             <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">Daftar Transaksi</h3>
+                <form action="main.php?" method="get">
+                  <input type="hidden" name="pages" value="kamar_custom">
+                <div style="display: flex; justify-content: flex-end">
+                  <table>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" name="tanggal"/>
+                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                  </table>
+                </div>
+                <div class="input-group-btn mt-2" style="display: flex; justify-content: flex-end">
+                  <button type="submit">Tampilkan </button> 
+                </div>
+                </form>
               </div>              
               <!-- /.card-header -->
               <div class="card-body p-0">

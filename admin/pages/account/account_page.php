@@ -18,7 +18,7 @@
     </div>
     <!-- /.content-header -->
 <div class="col-12">
-            <div class="card">
+            <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">Daftar Transaksi</h3>
                 <form action="main.php?" method="get">
@@ -29,16 +29,6 @@
                       <td align="left">
                         <div>
                           <b>
-                            <select name="tgl_awal" size="1" id="tgl_cekin" class="formSelect">
-                              <?php
-                                if($act=="edit"){
-                                  echo"<option value=\"$mulai[0]\" selected>$mulai[0]</option>";
-                                }
-                                for($s=1;$s<=31;$s++){
-                                  echo"<option value=\"$s\">$s</option>";
-                                }
-                              ?>
-                            </select>
                             <select name="bln_awal" size="1" id="bln" class="formSelect">
                               <?php
                                 if($act=="edit"){
@@ -80,16 +70,6 @@
                       <td align="left">
                         <div>
                           <b>
-                            <select name="tgl_akhir" size="1" id="tgl_cekin" class="formSelect">
-                              <?php
-                                if($act=="edit"){
-                                  echo"<option value=\"$mulai[0]\" selected>$mulai[0]</option>";
-                                }
-                                for($s=1;$s<=31;$s++){
-                                  echo"<option value=\"$s\">$s</option>";
-                                }
-                              ?>
-                            </select>
                             <select name="bln_akhir" size="1" id="bln" class="formSelect">
                               <?php
                                 if($act=="edit"){
