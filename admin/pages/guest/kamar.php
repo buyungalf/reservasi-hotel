@@ -25,12 +25,25 @@
                   <input type="hidden" name="pages" value="kamar_custom">
                 <div style="display: flex; justify-content: flex-end">
                   <table>
-                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" name="tanggal"/>
-                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    <tr>
+                      <td align="left">
+                        <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdatetime" name="tanggal"/>
+                            <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
                         </div>
-                    </div>
+                      </td>
+                      <td><div>s/d</div></td>
+                      <td align="left">
+                        <div class="input-group date" id="reservationdatetime1" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdatetime1" name="tanggal1"/>
+                            <div class="input-group-append" data-target="#reservationdatetime1" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                      </td>
+                    </tr>
                   </table>
                 </div>
                 <div class="input-group-btn mt-2" style="display: flex; justify-content: flex-end">

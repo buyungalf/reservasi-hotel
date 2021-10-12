@@ -104,9 +104,12 @@
 <script src="asset/plugins/inputmask/jquery.inputmask.min.js"></script>
 <script>
   $(function () {
-    //Date picker
-    $('#reservationdate').datetimepicker({
-        format: 'DD/MM/YYYY'
+    //Datetime picker
+    $('#reservationdatetime').datetimepicker({ 
+      format: 'DD-MM-YYYY HH:mm:ss'
+    });
+    $('#reservationdatetime1').datetimepicker({ 
+      format: 'DD-MM-YYYY HH:mm:ss'
     });
   })
 </script>
