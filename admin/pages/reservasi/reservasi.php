@@ -51,6 +51,9 @@
                             <div class="input-group-btn">
                               <a href="<?= $admin_url; ?>main.php?pages=order_tamu&id_tamu=<?= $tamu['id_tamu']; ?>" class="btn btn-success">Shop</i></a>
                               <a href="<?= $admin_url; ?>main.php?pages=check_out&id_tamu=<?= $tamu['id_tamu']; ?>" class="btn btn-danger">Check Out</i></a>
+                              <a href="./pages/reservasi/cetak.php?id_tamu=<?= $tamu['id_tamu']; ?>"  target='_blank'>
+                                <button class="btn btn-secondary">Check Invoice</button>
+                              </a>
                             </div>
                           </td>
                     </tr>

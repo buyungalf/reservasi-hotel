@@ -111,7 +111,7 @@
                       <td><b>Total</b></td>
                     </tr>
                     <tr>
-                      <td><?php echo"$nm_kamar"?>"</td>
+                      <td><?php echo"$nm_kamar"?></td>
                       <td><?php echo"$tipe_kamar"?></td>
                       <td><?php echo"$harga_k"?></td>
                       <td><?php echo"$i_checkin"?></td>

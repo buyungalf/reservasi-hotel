@@ -97,6 +97,8 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
             include "pages/reservasi/form_order_tamu.php";        
         } else if ($_GET['pages'] == 'check_out') {
             include "pages/reservasi/check_out.php";
+        } else if ($_GET['pages'] == 'invoice') {
+            include "pages/reservasi/cetak.php";
             
         }  else {
             include "pages/home/home.php";
