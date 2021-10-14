@@ -139,7 +139,7 @@
                     <tr>
                       <td><?= $co['nm_kamar'] ?></td>
                       <td><?= $co['tipe_kamar'] ?></td>
-                      <td><?= $co['harga'] ?></td>
+                      <td>Rp. <?= number_format($co['harga'],2,',','.'); ?></td>
                       <td><?= date("j F Y | H:i",$co['checkin']) ?></td>
                       <td><?= date("j F Y | H:i") ?></td>
                       <td>Rp. <?= number_format($harga_kamar,2,',','.'); ?></td>
@@ -181,9 +181,9 @@
                       <td><?= $i ?>.</td>
                       <td><?= date("j F Y | H:i",$to['tgl_order']) ?></td>
                       <td><?= $to['nm_order'] ?></td>
-                      <td><?= $to['harga'] ?></td>
+                      <td>Rp. <?= number_format($to['harga'],2,',','.'); ?></td>
                       <td><?= $to['banyak'] ?></td>
-                      <td><?= $to['biaya'] ?></td>
+                      <td>Rp. <?= number_format($to['biaya'],2,',','.'); ?></td>
                     </tr>
                     <?php 
                     $i++;

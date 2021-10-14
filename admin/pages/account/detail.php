@@ -119,7 +119,7 @@
                     <tr>
                       <td><?php echo"$nm_kamar" ?></td>
                       <td><?php echo"$tipe_kamar" ?></td>
-                      <td><?php echo"$harga" ?></td>
+                      <td>Rp. <?= number_format($harga,2,',','.'); ?></td>
                       <td><?php echo"$i_checkin" ?></td>
                       <td><?php echo"$i_checkout" ?></td>
                       <td>Rp. <?= number_format($harga_kamar,2,',','.'); ?></td>

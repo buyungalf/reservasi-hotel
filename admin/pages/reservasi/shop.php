@@ -79,9 +79,9 @@
                       <td><?= $i ?>.</td>
                       <td><?= date("j F Y | H:i",$to['tgl_order']) ?></td>
                       <td><?= $to['nm_order'] ?></td>
-                      <td><?= $to['harga'] ?></td>
+                      <td>Rp. <?= number_format($to['harga'],2,',','.'); ?></td>
                       <td><?= $to['banyak'] ?></td>
-                      <td><?= $to['biaya'] ?></td>
+                      <td>Rp. <?= number_format($to['biaya'],2,',','.'); ?></td>
                       <td>
                         <div class="input-group-btn">
                           <a href="<?= $admin_url; ?>pages/reservasi/aksi_hapus.php?id_tamu_order=<?= $to['id_tamu_order']; ?>&id_tamu=<?= $to['id_tamu'] ?>" class="btn btn-danger"><i class="fas fa-trash"></i></i></a>

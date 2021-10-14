@@ -50,7 +50,7 @@
                       <td><?= $i ?>.</td>
                       <td><?= $o['nm_order'] ?></td>
                       <td><?= $o['jenis_order'] ?></td>
-                      <td><?= $o['harga'] ?></td>
+                      <td>Rp. <?= number_format($o['harga'],2,',','.'); ?></td>
                       <td>
                             <div class="input-group-btn">
                               <a href="<?= $admin_url; ?>main.php?pages=edit_order&id_order=<?= $o['id']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>

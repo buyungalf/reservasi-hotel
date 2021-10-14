@@ -113,10 +113,10 @@
                     <tr>
                       <td><?php echo"$nm_kamar"?></td>
                       <td><?php echo"$tipe_kamar"?></td>
-                      <td><?= number_format($harga_k,2,',','.'); ?></td>
+                      <td>Rp.<?= number_format($harga_k,2,',','.'); ?></td>
                       <td><?php echo"$i_checkin"?></td>
                       <td><?php echo"$i_checkout"?></td>
-                      <td><?= number_format($harga_kamar,2,',','.'); ?></td>
+                      <td>Rp.<?= number_format($harga_kamar,2,',','.'); ?></td>
                     </tr>
                 </table>
                 <h2>Data Tambahan</h2>
@@ -146,9 +146,9 @@
                       <td><?php echo"$no" ?></td>
                       <td><?php echo"$tgl_order" ?></td>
                       <td><?php echo"$nm_order" ?></td>
-                      <td><?= number_format($harga,2,',','.'); ?></td>
+                      <td>Rp.<?= number_format($harga,2,',','.'); ?></td>
                       <td><?php echo"$banyak" ?></td>
-                      <td><?= number_format($biaya,2,',','.'); ?></td>
+                      <td>Rp.<?= number_format($biaya,2,',','.'); ?></td>
                     </tr>
 					
 					          <?php }?>
