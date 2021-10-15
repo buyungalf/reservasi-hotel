@@ -95,7 +95,7 @@ $date1 = strtotime($_GET['tanggal1']);
                       <td><?= $no_trans ?></td>
                       <td><?= $nm_kamar ?></td>
                       <td><?= $tipe_kamar ?></td>
-                      <td><?= $harga ?></td>
+                      <td>Rp. <?= number_format($harga,0,',','.'); ?></td>
                       <td><?= $i_checkin ?></td>
                       <td><?= $i_checkout ?></td>
                     </tr>

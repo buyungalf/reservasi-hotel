@@ -96,9 +96,9 @@ $date1 = strtotime($_GET['tanggal1']);
                       <td><?= $nm_kamar ?></td>
                       <td><?= $tgl_order ?></td>
                       <td><?= $nm_order ?></td>
-                      <td><?= $harga ?></td>
+                      <td>Rp <?= number_format($harga,0,',','.'); ?></td>
                       <td><?= $banyak ?></td>
-                      <td><?= $biaya ?></td>
+                      <td>Rp <?= number_format($biaya,0,',','.'); ?></td>
                     </tr>
                     <?php $i++;} ?>
                   </tbody>

@@ -139,10 +139,10 @@
                     <tr>
                       <td><?= $co['nm_kamar'] ?></td>
                       <td><?= $co['tipe_kamar'] ?></td>
-                      <td>Rp. <?= number_format($co['harga'],2,',','.'); ?></td>
+                      <td>Rp. <?= number_format($co['harga'],0,',','.'); ?></td>
                       <td><?= date("j F Y | H:i",$co['checkin']) ?></td>
                       <td><?= date("j F Y | H:i") ?></td>
-                      <td>Rp. <?= number_format($harga_kamar,2,',','.'); ?></td>
+                      <td>Rp. <?= number_format($harga_kamar,0,',','.'); ?></td>
                     </tr>
                   </tbody>
                 </table>
@@ -181,9 +181,9 @@
                       <td><?= $i ?>.</td>
                       <td><?= date("j F Y | H:i",$to['tgl_order']) ?></td>
                       <td><?= $to['nm_order'] ?></td>
-                      <td>Rp. <?= number_format($to['harga'],2,',','.'); ?></td>
+                      <td>Rp. <?= number_format($to['harga'],0,',','.'); ?></td>
                       <td><?= $to['banyak'] ?></td>
-                      <td>Rp. <?= number_format($to['biaya'],2,',','.'); ?></td>
+                      <td>Rp. <?= number_format($to['biaya'],0,',','.'); ?></td>
                     </tr>
                     <?php 
                     $i++;
@@ -203,9 +203,9 @@
                 </div>
                 <!-- /.col -->
                 <div class=" invoice-col mb-3 mt-3 ">
-                  <b>Total Order :</b> Rp. <?= number_format($total_order,2,',','.') ?><br>
+                  <b>Total Order :</b> Rp. <?= number_format($total_order,0,',','.') ?><br>
                   <b>Diskon Kamar :</b> <?= $co['diskon'] ?>%<br>
-                  <b>Total Tagihan :</b> Rp. <?= number_format($total_tagihan,2,',','.') ?>
+                  <b>Total Tagihan :</b> Rp. <?= number_format($total_tagihan,0,',','.') ?>
                   <input type="hidden" name="total_tagihan" value="<?= $total_tagihan ?>">
                 </div>          
             </div>  

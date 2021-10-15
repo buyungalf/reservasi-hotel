@@ -86,7 +86,7 @@
                       <td><?= $no_trans ?></td>
                       <td><?= $nm_kamar ?></td>
                       <td><?= $tipe_kamar ?></td>
-                      <td>Rp. <?= number_format($harga,2,',','.'); ?></td>
+                      <td>Rp. <?= number_format($harga,0,',','.'); ?></td>
                       <td><?= $i_checkin ?></td>
                       <td><?= $i_checkout ?></td>
                     </tr>

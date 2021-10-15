@@ -113,10 +113,10 @@
                     <tr>
                       <td><?php echo"$nm_kamar"?></td>
                       <td><?php echo"$tipe_kamar"?></td>
-                      <td>Rp.<?= number_format($harga_k,2,',','.'); ?></td>
+                      <td>Rp.<?= number_format($harga_k,0,',','.'); ?></td>
                       <td><?php echo"$i_checkin"?></td>
                       <td><?php echo"$i_checkout"?></td>
-                      <td>Rp.<?= number_format($harga_kamar,2,',','.'); ?></td>
+                      <td>Rp.<?= number_format($harga_kamar,0,',','.'); ?></td>
                     </tr>
                 </table>
                 <h2>Data Tambahan</h2>
@@ -146,9 +146,9 @@
                       <td><?php echo"$no" ?></td>
                       <td><?php echo"$tgl_order" ?></td>
                       <td><?php echo"$nm_order" ?></td>
-                      <td>Rp.<?= number_format($harga,2,',','.'); ?></td>
+                      <td>Rp.<?= number_format($harga,0,',','.'); ?></td>
                       <td><?php echo"$banyak" ?></td>
-                      <td>Rp.<?= number_format($biaya,2,',','.'); ?></td>
+                      <td>Rp.<?= number_format($biaya,0,',','.'); ?></td>
                     </tr>
 					
 					          <?php }?>
@@ -156,15 +156,15 @@
                 <table align="right">
                     <tr>
                       <td>TOTAL ORDER </td>
-                      <td>= Rp.<b><?= number_format($tot_order,2,',','.'); ?></b> </td>
+                      <td>= Rp.<b><?= number_format($tot_order,0,',','.'); ?></b> </td>
                     </tr>
                     <tr>
                       <td>DISKON KAMAR (<b><?php echo"$diskon"?></b> %) </td>
-                      <td>= Rp.<b><?= number_format($tot_diskon,2,',','.'); ?></b></td>
+                      <td>= Rp.<b><?= number_format($tot_diskon,0,',','.'); ?></b></td>
                     </tr>
                     <tr>
                       <td>TOTAL TAGIHAN </td>
-                      <td>= Rp.<b><?= number_format($tot_tagihan,2,',','.'); ?></b></td>
+                      <td>= Rp.<b><?= number_format($tot_tagihan,0,',','.'); ?></b></td>
                     </tr>
                 </table>
               </div>'

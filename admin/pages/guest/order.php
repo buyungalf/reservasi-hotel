@@ -87,9 +87,9 @@
                       <td><?= $nm_kamar ?></td>
                       <td><?= $tgl_order ?></td>
                       <td><?= $nm_order ?></td>
-                      <td>Rp. <?= number_format($harga,2,',','.'); ?></td>
+                      <td>Rp<?= number_format($harga,0,',','.'); ?></td>
                       <td><?= $banyak ?></td>
-                      <td>Rp. <?= number_format($biaya,2,',','.'); ?></td>
+                      <td>Rp<?= number_format($biaya,0,',','.'); ?></td>
                     </tr>
                     <?php $i++;} ?>
                   </tbody>

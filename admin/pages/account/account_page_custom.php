@@ -146,7 +146,7 @@ $thn2 = $_GET['thn_akhir'];
                       <td><?= $i ?>.</td>
                       <td><?= $a['tgl_trans'] ?>/<?= $a['bln_trans'] ?>/<?= $a['thn_trans'] ?></td>
                       <td><?= $a['no_trans'] ?></td>
-                      <td><?= $a['total'] ?></td>
+                      <td>Rp. <?= number_format($a['total'],0,',','.'); ?></td>
                       <td>
                         <div class="input-group-btn">
                           <a href="<?= $admin_url; ?>main.php?pages=detail_account&no_trans=<?= $a['no_trans']; ?>" class="btn btn-secondary"> DETAIL </a>
