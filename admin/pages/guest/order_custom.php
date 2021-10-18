@@ -56,7 +56,7 @@ $date1 = strtotime($_GET['tanggal1']);
                 	<h3 class="card-title">Periode <?= $tgl ?> s/d <?= $tgl1 ?></h3>
                 </div>
                 <div class="input-group-btn mt-2" style="display: flex; justify-content: flex-end">
-                  <button type="submit">Tampilkan </button> 
+                  <button type="submit" class="btn btn-warning">Tampilkan </button> 
                 </div>
                 </form>
               </div>              

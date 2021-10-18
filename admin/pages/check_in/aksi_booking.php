@@ -4,8 +4,8 @@ include "../../../lib/koneksi.php";
 if(isset($_POST[booking_new]))
 {						
 	$tgl_pesan = mktime(date("H"),date("i"),date("s"),date("m"),date("d"),date("Y")); 
-	$tgl_checkin = mktime(date("H"),date("i"),date("s"),date("$_POST[required_bln_cekin]"),date("$_POST[required_tgl_cekin]"),date("$_POST[required_thn_cekin]")); 
-	$tgl_checkout = mktime(date("H"),date("i"),date("s"),date("$_POST[required_bln_cekout]"),date("$_POST[required_tgl_cekout]"),date("$_POST[required_thn_cekout]"));
+	$tgl_checkin = strtotime($_POST['tanggal']); 
+	$tgl_checkout = strtotime($_POST['tanggal1']);
 	
 	$perintah="insert into tb_pesan (tgl_pesan, no_pesan, email, phone, nama, kota, alamat, tgl_cekin, tgl_cekout, id_tipe)
 				values ('$tgl_pesan','$_POST[no_pesan]','$_POST[required_email]','$_POST[required_phone]','$_POST[required_nama]','$_POST[required_city]',

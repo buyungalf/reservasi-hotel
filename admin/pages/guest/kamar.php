@@ -47,7 +47,7 @@
                   </table>
                 </div>
                 <div class="input-group-btn mt-2" style="display: flex; justify-content: flex-end">
-                  <button type="submit">Tampilkan </button> 
+                  <button type="submit" class="btn btn-warning">Tampilkan </button> 
                 </div>
                 </form>
               </div>              

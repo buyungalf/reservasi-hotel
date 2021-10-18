@@ -112,46 +112,12 @@
                       <table>
                         <tr>
                           <td align="left"><div><b>
-                          <select name="required_tgl_cekin" size="1" id="tgl_cekin" class="formSelect">
-                          <?php
-                          if($act=="edit"){
-                          echo"<option value=\"$mulai[0]\" selected>$mulai[0]</option>";
-                          }
-                          for($s=1;$s<=31;$s++){
-                          echo"<option value=\"$s\">$s</option>";
-                          }
-                          ?>
-                          </select>
-                          <select name="required_bln_cekin" size="1" id="bln" class="formSelect">
-                          <?php
-                          if($act=="edit"){
-                          echo"<option value=\"$msk[$bulan]\" selected>$bln[$bulan]</option>";
-                          }
-                          ?>
-                          <option value="01">Januari</option>
-                          <option value="02">Pebruari</option>
-                          <option value="03">Maret</option>
-                          <option value="04">April</option>
-                          <option value="05">Mei</option>
-                          <option value="06">Juni</option>
-                          <option value="07">Juli</option>
-                          <option value="08">Agustus</option>
-                          <option value="09">September</option>
-                          <option value="10">Oktober</option>
-                          <option value="11">Nopember</option>
-                          <option value="12">Desember</option>
-                          </select>
-                          <select name="required_thn_cekin" size="1" id="thn" class="formSelect">
-                          <?php
-                          $th=date("Y");
-                          if($act=="edit"){
-                          echo"<option value=\"$mulai[2]\" selected>$mulai[2]</option>";
-                          }
-                          for($s=$th;$s<=$th+1;$s++){
-                          echo"<option value=\"$s\">$s</option>";
-                          }
-                          ?>
-                          </select>
+                          <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                              <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" name="tanggal"/>
+                              <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                              </div>
+                          </div>
                           </b></div></td>
                         </tr>
                       </table>
@@ -161,48 +127,14 @@
                     <label class="col-sm-2 col-form-label">Tgl Check-out</label>
                     <div class="col-sm-10">
                       <table>
-                        <tr>
+                      <tr>
                           <td align="left"><div><b>
-                          <select name="required_tgl_cekout" size="1" id="tgl_cekout" class="formSelect">
-                          <?php
-                          if($act=="edit"){
-                          echo"<option value=\"$mulai[0]\" selected>$mulai[0]</option>";
-                          }
-                          for($s=1;$s<=31;$s++){
-                          echo"<option value=\"$s\">$s</option>";
-                          }
-                          ?>
-                          </select>
-                          <select name="required_bln_cekout" size="1" id="select" class="formSelect">
-                          <?php
-                          if($act=="edit"){
-                          echo"<option value=\"$msk[$bulan]\" selected>$bln[$bulan]</option>";
-                          }
-                          ?>
-                          <option value="01">Januari</option>
-                          <option value="02">Pebruari</option>
-                          <option value="03">Maret</option>
-                          <option value="04">April</option>
-                          <option value="05">Mei</option>
-                          <option value="06">Juni</option>
-                          <option value="07">Juli</option>
-                          <option value="08">Agustus</option>
-                          <option value="09">September</option>
-                          <option value="10">Oktober</option>
-                          <option value="11">Nopember</option>
-                          <option value="12">Desember</option>
-                          </select>
-                          <select name="required_thn_cekout" size="1" id="select2" class="formSelect">
-                          <?php
-                          $th=date("Y");
-                          if($act=="edit"){
-                          echo"<option value=\"$mulai[2]\" selected>$mulai[2]</option>";
-                          }
-                          for($s=$th;$s<=$th+1;$s++){
-                          echo"<option value=\"$s\">$s</option>";
-                          }
-                          ?>
-                          </select>
+                          <div class="input-group date" id="reservationdate1" data-target-input="nearest">
+                              <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate1" name="tanggal1"/>
+                              <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
+                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                              </div>
+                          </div>
                           </b></div></td>
                         </tr>
                       </table>
