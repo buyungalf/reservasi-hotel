@@ -113,7 +113,7 @@
                         <tr>
                           <td align="left"><div><b>
                           <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                              <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" name="tanggal"/>
+                              <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" name="tanggal" placeholder="DD-MM-YYYY"/>
                               <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                   <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                               </div>
@@ -130,7 +130,7 @@
                       <tr>
                           <td align="left"><div><b>
                           <div class="input-group date" id="reservationdate1" data-target-input="nearest">
-                              <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate1" name="tanggal1"/>
+                              <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate1" name="tanggal1" placeholder="DD-MM-YYYY"/>
                               <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
                                   <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                               </div>

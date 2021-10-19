@@ -34,7 +34,7 @@ $date1 = strtotime($_GET['tanggal1']);
                     <tr>
                       <td align="left">
                         <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
-                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdatetime" name="tanggal"/>
+                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdatetime" name="tanggal" placeholder="DD-MM-YYYY"/>
                             <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                             </div>
@@ -43,7 +43,7 @@ $date1 = strtotime($_GET['tanggal1']);
                       <td><div>s/d</div></td>
                       <td align="left">
                         <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
-                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdatetime1" name="tanggal1"/>
+                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdatetime1" name="tanggal1" placeholder="DD-MM-YYYY"/>
                             <div class="input-group-append" data-target="#reservationdatetime1" data-toggle="datetimepicker">
                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                             </div>
