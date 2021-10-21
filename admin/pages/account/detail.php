@@ -29,10 +29,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
-                <table class="table">
-                  <tbody>
-                    
-                    <?php
+                  <?php
                       $no_trans = $_GET['no_trans'];
                       include "../lib/config.php";
                       include "../lib/koneksi.php";
@@ -106,7 +103,8 @@
                         $harga_kamar = $harga * $lama_sewa;
                       }
                     }?>
-
+                    <table  class="table">
+                    <h2>Data Kamar</h2>
                     <tr>
                       <th>Nama kamar</th>
                       <th>Tipe kamar</th>
@@ -124,14 +122,17 @@
                       <td><?php echo"$i_checkout" ?></td>
                       <td>Rp. <?= number_format($harga_kamar,0,',','.'); ?></td>
                     </tr>
+                    </table><br>
 
+                    <table  class="table">
+                    <h2>Data Tambahan</h2>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td><b>Daftar Order</b></td>
-                      <td></td>
-                      <td></td>
+                      <td><b>No</b></td>
+                      <td><b>Tanggal Order</b></td>
+                      <td><b>Nama Order</b></td>
+                      <td><b>Harga</b></td>
+                      <td><b>Jumalah</b></td>
+                      <td><b>Total</b></td>
                     </tr>
                     <?php										
 					          $no=0;
@@ -167,6 +168,7 @@
 					            	</tr>";
 					          }
 				          	?>
+                    </table><br>
 
                     <?php
                     $kueri1 = mysqli_query($koneksi, "SELECT SUM(biaya) FROM tb_trans_tamu_order where id_tamu = $id_tamu_");
@@ -186,26 +188,26 @@
                     $tot_tagihan = ($harga_kamar + $tot_order) - $tot_diskon;
                     ?>
 
+                    <table  align="right">
                     <tr>
-                      <td></td><td></td><td></td><td></td><td></td>
-                      <td>TOTAL ORDER = Rp.<b><?= number_format($tot_order,0,',','.'); ?></b></td>
+                      <td>TOTAL ORDER </td>
+                      <td>= Rp.<b><?= number_format($tot_order,0,',','.'); ?></b> </td>
                     </tr>
                     <tr>
-                      <td></td><td></td><td></td><td></td><td></td>
-                      <td>DISKON KAMAR (<?php echo"<b>$diskon</b> %" ?>) = Rp.<b><?= number_format($tot_diskon,0,',','.'); ?></b></td>
+                      <td>DISKON KAMAR (<b><?php echo"$diskon"?></b> %) </td>
+                      <td>= Rp.<b><?= number_format($tot_diskon,0,',','.'); ?></b></td>
                     </tr>
                     <tr>
-                      <td></td><td></td><td></td><td></td><td></td>
-                      <td>TOTAL TAGIHAN = Rp.<b><?= number_format($tot_tagihan,0,',','.'); ?></b></td>
+                      <td>TOTAL TAGIHAN </td>
+                      <td>= Rp.<b><?= number_format($tot_tagihan,0,',','.'); ?></b></td>
                     </tr>
-                  </tbody>
-                </table>
-                <div class="card-body d-flex justify-content-center">
-                <a href="./pages/account/cetak.php?no_trans=<?php echo"$no_trans_" ?>"  target='_blank'>
-                  <button class="btn btn-secondary float-right">CETAK</button>
-                </a>
-                </div>
+                    </table><br><br>
               </div>
+                <div class="card-body d-flex justify-content-center">
+                  <a href="./pages/account/cetak.php?no_trans=<?php echo"$no_trans_" ?>"  target='_blank'>
+                    <button class="btn btn-secondary float-right">CETAK</button>
+                  </a>
+                </div>
               <!-- /.card-body -->
             </div>
     <!-- /.card -->
