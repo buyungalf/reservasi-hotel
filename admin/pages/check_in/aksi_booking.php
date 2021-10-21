@@ -1,7 +1,7 @@
 <?php
 include "../../../lib/config.php";
 include "../../../lib/koneksi.php";
-if(isset($_POST[booking_new]))
+if(isset($_POST['booking_new']))
 {						
 	$tgl_pesan = mktime(date("H"),date("i"),date("s"),date("m"),date("d"),date("Y")); 
 	$tgl_checkin = mktime(date("H"),date("i"),date("s"),date("$_POST[required_bln_cekin]"),date("$_POST[required_tgl_cekin]"),date("$_POST[required_thn_cekin]")); 
