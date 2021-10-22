@@ -43,8 +43,6 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
             include "pages/user/user.php";
         } else if ($_GET['pages'] == 'tambah_user') {
             include "pages/user/form_tambah.php";
-        } else if ($_GET['pages'] == 'edit_user') {
-            include "pages/user/form_edit.php";
 
         } else if ($_GET['pages'] == 'jenis_order') {
             include "pages/jenis_order/jenis_order.php";

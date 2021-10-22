@@ -62,7 +62,6 @@
                       <td><?= $u['lastlogin'] ?></td>
                       <td>
                         <div class="input-group-btn">
-                          <a href="<?= $admin_url; ?>main.php?pages=edit_user&id_user=<?= $u['id_user']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                           <a href="<?= $admin_url; ?>pages/user/aksi_hapus.php?id_user=<?= $u['id_user']; ?>" class="btn btn-danger"><i class="fas fa-power-off"></i></a>
                         </div>
                       </td>

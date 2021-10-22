@@ -8,7 +8,7 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
 	include "../../../lib/koneksi.php";
 
 	$username = $_POST['username'];
-	$password = $_POST['password'];
+	$password = md5($_POST['password']);
 	$status = $_POST['status'];
 	$realname = $_POST['realname'];
 	$foto = $_POST['foto'];
